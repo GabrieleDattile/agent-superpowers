@@ -39,3 +39,7 @@ ENV/
 # OS
 .DS_Store
 Thumbs.db
+
+# Agent Superpowers Worktrees
+.worktrees/
+

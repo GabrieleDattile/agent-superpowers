@@ -81,13 +81,19 @@ def cmd_validate():
     else:
         console.print(Panel("[bold green]All skills passed specification checks successfully![/]", title="CI Validation"))
 
+def cmd_mcp():
+    from mcp.server import main as mcp_main
+    mcp_main()
+
 def main():
     if len(sys.argv) < 2 or sys.argv[1] == "list":
         cmd_list()
     elif sys.argv[1] == "validate":
         cmd_validate()
+    elif sys.argv[1] == "serve-mcp":
+        cmd_mcp()
     else:
-        console.print("[red]Unknown command. Available: `list`, `validate`[/]")
+        console.print("[red]Unknown command. Available: `list`, `validate`, `serve-mcp`[/]")
 
 if __name__ == "__main__":
     main()

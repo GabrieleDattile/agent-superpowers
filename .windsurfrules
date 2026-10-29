@@ -1,0 +1,6 @@
+# Agent Superpowers: Windsurf Engineering Directives
+
+- Before writing or editing code for bug fixes, enforce Test-Driven Remediation (TDR) by executing or drafting a reproduction test that fails first (`ghost-runner`).
+- For new feature development, summarize requirements and verify assumptions with the user (`feature-brainstormer`).
+- Evaluate critical endpoints against edge-case inputs (nulls, overflows, zero divisions) with adversarial fuzzer logic (`adversarial-duelist`).
+- Use the local `cli/superpowers.py` helper to inspect and execute deterministic tools.

@@ -1,0 +1,7 @@
+name: agent-superpowers
+version: 1.1.0
+description: Autonomous engineering skills suite for AI coding agents.
+author: Gabriele Dattile (https://github.com/GabrieleDattile)
+repository: https://github.com/GabrieleDattile/agent-superpowers
+entrypoint: cli/superpowers.py
+skills_dir: skills

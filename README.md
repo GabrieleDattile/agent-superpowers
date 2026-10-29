@@ -2,12 +2,13 @@
 
 # ⚡ Agent Superpowers
 
-**Production-grade, battle-tested skills for autonomous AI software engineers.**  
-*Compatible with Claude Code, Cursor, Windsurf, Gemini CLI, Copilot, and Model Context Protocol (MCP).*
+**The universal, production-grade skills framework for autonomous AI software engineers.**  
+*Plug-and-play compatibility across Claude Code, Cursor, Codex, Antigravity, Windsurf, Gemini CLI, and Model Context Protocol (MCP).*
 
 [![GitHub Stars](https://img.shields.io/github/stars/GabrieleDattile/agent-superpowers?style=for-the-badge&color=yellow)](https://github.com/GabrieleDattile/agent-superpowers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
-[![Specification](https://img.shields.io/badge/Spec-Agent%20Skills%20v1.0-brightgreen?style=for-the-badge)](docs/SPECIFICATION.md)
+[![Spec: v1.1.0](https://img.shields.io/badge/Spec-Agent%20Skills%20v1.1-brightgreen?style=for-the-badge)](docs/SPECIFICATION.md)
+[![MCP Server](https://img.shields.io/badge/MCP-Compatible-purple?style=for-the-badge)](mcp/server.py)
 [![Author](https://img.shields.io/badge/Created%20By-Gabriele%20Dattile-orange?style=for-the-badge)](https://github.com/GabrieleDattile)
 
 <br/>
@@ -23,102 +24,121 @@
 
 ## 💡 Why Agent Superpowers?
 
-Most AI agents today **look at static code and guess fixes**. They hallucinate solutions, introduce silent regressions, blow through token budgets, and miss catastrophic edge cases.
+Most AI coding assistants (like default Cursor or Claude sessions) act like chaotic junior developers: they **guess fixes, edit production files prematurely, blow through token limits, and introduce silent regressions**.
 
-**Agent Superpowers** transforms coding agents into **disciplined, scientific software engineers** through strict operational protocols and deterministic runtime tooling.
+**Agent Superpowers** equips your AI agent with a disciplined **7-Stage Autonomous Engineering Lifecycle**:
 
-* 🔬 **No Guesswork**: Prohibits editing production code until a minimal failing test reproduces the bug in isolation.
-* ⚔️ **Offensive Audit**: Pits an adversarial hacker AI against proposed PRs with extreme boundary payloads before merge.
-* 📉 **Token Efficiency**: Compresses context and source files by 50-70% via AST parsing without semantic loss.
-* 🔌 **Zero-Friction SDKs**: Turns raw network traffic (cURL or HAR logs) into typed client SDKs in seconds.
-* 🗺️ **Codebase Cartography**: Maps spaghetti architectures and detects dead zombie functions automatically.
+```text
+[1. BRAINSTORM] ──> [2. WORKTREE ISOLATE] ──> [3. MAP & COMPRESS]
+       │                                              │
+       ▼                                              ▼
+[7. MERGE / PR] <── [6. RED-TEAM FUZZ] <── [5. SURGICAL PATCH] <── [4. TDD PROOF (RED)]
+```
 
----
-
-## 📦 The Skills Suite
-
-Each skill is fully autonomous, self-contained, and follows the [Agent Skill Specification](docs/SPECIFICATION.md).
-
-| Skill | Category | Description | Primary Capabilities |
-| :--- | :--- | :--- | :--- |
-| [**`ghost-runner`**](skills/debugging/ghost-runner/SKILL.md) | 🔍 Debugging | Zero-assumption bug replicator | Strict Test-Driven Remediation, auto-creates isolated MRE, verifies RED then GREEN |
-| [**`adversarial-duelist`**](skills/security/adversarial-duelist/SKILL.md) | 🛡️ Security | Pre-commit red-team fuzzer | Injects null-bytes, zero-divisions, SQLi vectors, and boundary overflows against functions |
-| [**`token-squeezer`**](skills/optimization/token-squeezer/SKILL.md) | ⚡ Optimization | AST-based context compressor | Shrinks codebase context by 50-70%, extracts pure type interfaces, cuts LLM API costs |
-| [**`api-synthesizer`**](skills/reverse-engineering/api-synthesizer/SKILL.md) | 🔌 Integration | Reverse-engineer APIs to SDKs | Ingests cURL/HAR dumps, generates typed Python/TypeScript clients with session handling |
-| [**`arch-archaeologist`**](skills/architecture/arch-archaeologist/SKILL.md) | 🗺️ Architecture | Monolith & dependency cartographer | Traces module call graphs, exposes dead/zombie functions, generates Mermaid.js diagrams |
+* 🧠 **Master Orchestration**: Automatically chains skills from brainstorming to isolated execution.
+* 📦 **Zero-Risk Worktrees**: Ephemeral git worktrees guarantee your primary branch is never corrupted during agent experiments.
+* 🔬 **Scientific TDD**: Prohibits editing source code until a minimal failing test reproduces the bug in isolation (`RED`).
+* ⚔️ **Offensive Red-Teaming**: Attacks functions with null-bytes, SQLi vectors, and boundary overflows before allowing a merge.
+* 📉 **60% Token Reduction**: AST interface compressor slashes LLM API costs while retaining 100% semantic clarity.
+* 🔌 **Zero-Friction SDKs**: Transforms raw cURL network traffic and browser HAR dumps into typed client libraries in seconds.
+* 🗺️ **Code Cartography**: Automatically diagrams spaghetti code dependencies and detects dead zombie functions.
 
 ---
 
-## 🚀 Quick Start (60 Seconds)
+## 📦 The 8 Superpowers
 
-### 1. Clone the repository
+| Skill | Category | Primary Capability |
+| :--- | :--- | :--- |
+| [**`using-superpowers`**](skills/orchestration/using-superpowers/SKILL.md) | 🧠 Orchestration | Master bootstrap meta-skill; enforces the 7-stage engineering lifecycle |
+| [**`feature-brainstormer`**](skills/workflow/feature-brainstormer/SKILL.md) | 💡 Workflow | Socratic requirements refiner; asks 3 clarifying questions before coding |
+| [**`git-worktree-sandbox`**](skills/workflow/git-worktree-sandbox/SKILL.md) | 📦 Workflow | Ephemeral git worktree isolation; zero risk of breaking active workspace |
+| [**`ghost-runner`**](skills/debugging/ghost-runner/SKILL.md) | 🔍 Debugging | Zero-assumption bug reproducer; enforces strict RED ➔ GREEN TDD cycle |
+| [**`adversarial-duelist`**](skills/security/adversarial-duelist/SKILL.md) | 🛡️ Security | Pre-commit red-team fuzzer; injects malicious edge-case payloads |
+| [**`token-squeezer`**](skills/optimization/token-squeezer/SKILL.md) | ⚡ Optimization | AST-based context compressor; cuts LLM prompt token costs by 50-70% |
+| [**`api-synthesizer`**](skills/reverse-engineering/api-synthesizer/SKILL.md) | 🔌 Integration | Network-to-SDK generator; converts cURL traffic into typed Python clients |
+| [**`arch-archaeologist`**](skills/architecture/arch-archaeologist/SKILL.md) | 🗺️ Architecture | Codebase cartographer; traces dependency graphs and isolates dead code |
+
+---
+
+## ⚡ 1-Click Universal Installation
+
+Agent Superpowers runs everywhere. Install all skills across your tools with a single command:
+
 ```bash
 git clone https://github.com/GabrieleDattile/agent-superpowers.git
 cd agent-superpowers
+python install.py --target all
 ```
 
-### 2. Verify installed skills
+Or deploy to a specific environment:
+
+### 🟣 Claude Code (Native Plugin)
+Claude Code automatically recognizes the included `.claude-plugin/plugin.json`:
 ```bash
+python install.py --target claude
+```
+
+### 🔵 Cursor
+Injects native MDC rules into your workspace `.cursor/rules/`:
+```bash
+python install.py --target cursor
+```
+
+### 🟠 Google Antigravity & Gemini CLI
+Installs directly into `.gemini/antigravity/skills` or via extension manifest:
+```bash
+python install.py --target antigravity
+```
+
+### 🟢 OpenAI Codex
+Configures `.codex/` with automatic skill indexing:
+```bash
+python install.py --target codex
+```
+
+### 🔌 Model Context Protocol (MCP) Server
+Plug Agent Superpowers into **Claude Desktop, Cursor, Zed, or OpenCode** via stdio JSON-RPC:
+```json
+{
+  "mcpServers": {
+    "agent-superpowers": {
+      "command": "python",
+      "args": ["-m", "mcp.server"]
+    }
+  }
+}
+```
+
+---
+
+## 🚀 Quick CLI Verification
+
+Inspect registered skills and run automated CI checks locally:
+```bash
+# List all 8 registered superpowers
 python cli/superpowers.py list
-```
 
-### 3. Run a quick check
-Test the skills validator or run any skill engine directly:
-```bash
 # Validate specification compliance
 python cli/superpowers.py validate
 
-# Run Ghost-Runner on sample test
-python skills/debugging/ghost-runner/scripts/ghost_runner.py reproduce --test "python skills/debugging/ghost-runner/examples/test_reproduce.py"
-
-# Run Adversarial Duelist red-team audit
-python skills/security/adversarial-duelist/scripts/duelist.py --target skills/security/adversarial-duelist/examples/vulnerable_auth.py --func process_transaction
+# Run the automated unit test suite
+python -m unittest tests/test_skills.py
 ```
 
 ---
 
-## 🛠️ IDE & Agent Integration
+## 🤝 Contributing & Specification
 
-### Claude Code
-Add skills directly to your project's `.claude/skills/` directory. Claude Code will automatically index each `SKILL.md` and load it on matching user prompts.
-
-### Cursor & Windsurf
-Include the instructions from any target `SKILL.md` into your `.cursorrules` or `.windsurfrules`. See our [IDE Compatibility Guide](docs/COMPATIBILITY.md) for pre-built rule templates.
-
-### Model Context Protocol (MCP)
-All deterministic tools in `scripts/` can be registered as standard MCP servers. Run the CLI bridge:
-```bash
-python cli/superpowers.py serve-mcp
-```
-
----
-
-## 📖 Standard Architecture
-
-All skills implement **Progressive Context Loading**:
-```text
-skills/<category>/<skill-name>/
-├── SKILL.md            # Spec, triggers, system prompt, negative constraints
-├── scripts/            # Deterministic Python/Bash tools (zero LLM hallucinations)
-└── examples/           # Test targets, samples, and few-shot fixtures
-```
-
-Read the full [Agent Skill Specification](docs/SPECIFICATION.md) to author your own skills.
-
----
-
-## 🤝 Contributing
-
-We welcome community-contributed skills!
-1. Read the [Contributing Guidelines](CONTRIBUTING.md).
-2. Use the [Skill Proposal Template](.github/ISSUE_TEMPLATE/new_skill.yml).
-3. Ensure all tests and specification checks pass (`python cli/superpowers.py validate`).
+Want to add a new superpower?
+1. Follow our formal [Agent Skill Specification](docs/SPECIFICATION.md).
+2. Submit a proposal using the [New Skill Template](.github/ISSUE_TEMPLATE/new_skill.yml).
+3. Ensure CI checks pass (`python cli/superpowers.py validate`).
 
 ---
 
 ## 👤 Author
 
-**Gabriele Dattile**
+**Gabriele Dattile**  
 * GitHub: [@GabrieleDattile](https://github.com/GabrieleDattile)
 
 ---

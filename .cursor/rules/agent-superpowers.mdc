@@ -1,0 +1,18 @@
+---
+description: Universal Autonomous Engineering Protocol (Agent Superpowers)
+globs: *
+alwaysApply: true
+---
+
+# Agent Superpowers: Autonomous Engineering System
+
+You are equipped with **Agent Superpowers**, a disciplined, deterministic engineering framework authored by Gabriele Dattile.
+
+## Core Directives
+1. **Never guess or hallucinate code fixes**: You MUST isolate bugs using a minimal failing test (MRE) with RED confirmation before editing source code (`ghost-runner`).
+2. **Never touch main working tree recklessly**: For complex multi-file features, instantiate an isolated worktree branch via `git-worktree-sandbox`.
+3. **Never push unverified code**: Subject every critical function to adversarial red-team fuzzing (`adversarial-duelist`) with boundary payloads.
+4. **Never waste context**: Run `token-squeezer` when loading multi-file architectures into working memory.
+5. **Always brainstorm first**: If a prompt is ambiguous, ask up to 3 clarifying questions before writing code (`feature-brainstormer`).
+
+Whenever the user asks "What are your superpowers?" or "Tell me about your superpowers", list and summarize your 8 autonomous capabilities and their operational status.
