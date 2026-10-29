@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-superpowers"
+version = "1.0.0"
+description = "Production-grade, battle-tested skills for autonomous AI software engineers."
+readme = "README.md"
+authors = [{ name = "Gabriele Dattile", email = "dattilegabriele@gmail.com" }]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = ["ai-agents", "agent-skills", "claude-code", "cursor", "mcp", "debugging", "security"]
+dependencies = [
+    "pyyaml>=6.0",
+    "pydantic>=2.0",
+    "rich>=13.0",
+    "requests>=2.28.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pillow>=10.0",
+]
+
+[project.scripts]
+superpowers = "cli.superpowers:main"
+
+[project.urls]
+Homepage = "https://github.com/GabrieleDattile/agent-superpowers"
+Repository = "https://github.com/GabrieleDattile/agent-superpowers.git"
+Issues = "https://github.com/GabrieleDattile/agent-superpowers/issues"
