@@ -8,7 +8,6 @@ env/
 build/
 develop-eggs/
 dist/
-downloads/
 eggs/
 .eggs/
 lib/
@@ -44,4 +43,6 @@ Thumbs.db
 .worktrees/
 .superpowers/
 node_modules/
-dist/
+
+# Allow downloads folder
+!downloads/

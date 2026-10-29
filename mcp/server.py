@@ -89,6 +89,18 @@ TOOLS = [
             },
             "required": ["action"]
         }
+    },
+    {
+        "name": "frontend_sentinel",
+        "description": "Audits React, Vue, and HTML templates for accessibility defects, mobile viewport breaks, and hydration hazards.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "path": {"type": "string", "description": "Path to file or folder to audit"},
+                "html_report": {"type": "string", "description": "Optional output path for HTML report"}
+            },
+            "required": ["path"]
+        }
     }
 ]
 
@@ -127,6 +139,13 @@ def handle_call_tool(name: str, args: dict):
         res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
         return res.stdout or res.stderr
 
+    elif name == "frontend_sentinel":
+        path = args["path"]
+        rep = f'--html-report "{args["html_report"]}"' if args.get("html_report") else ""
+        cmd = f'python skills/frontend/frontend-sentinel/scripts/auditor.py --path "{path}" {rep}'.strip()
+        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
+        return res.stdout or res.stderr
+
     return "Unknown tool"
 
 def main():
@@ -148,7 +167,7 @@ def main():
                 "id": req_id,
                 "result": {
                     "protocolVersion": "2024-11-05",
-                    "serverInfo": {"name": "agent-superpowers", "version": "1.1.0"},
+                    "serverInfo": {"name": "agent-superpowers", "version": "1.2.0"},
                     "capabilities": {"tools": {}}
                 }
             }

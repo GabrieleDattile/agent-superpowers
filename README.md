@@ -13,6 +13,12 @@
 
 <br/>
 
+<a href="downloads/agent-superpowers-v1.2.0.zip?raw=true">
+  <img src="https://img.shields.io/badge/📦%20Download%20All%20Skills-ZIP%20Archive-success?style=for-the-badge&logo=github" alt="Download ZIP Archive" />
+</a>
+
+<br/><br/>
+
 <img src="assets/demo.gif" alt="Agent Superpowers Terminal Demo" width="820"/>
 
 <br/>
@@ -24,7 +30,7 @@
 
 ## 💡 Why Agent Superpowers?
 
-Default AI coding assistants act like chaotic junior developers: they **guess fixes, edit production files prematurely, blow through token budgets, and forget past architectural choices**.
+Default AI coding assistants act like chaotic junior developers: they **guess fixes, edit production files prematurely, break mobile viewports, blow through token budgets, and forget past architectural choices**.
 
 **Agent Superpowers** equips your AI agent with a disciplined **7-Stage Autonomous Engineering Lifecycle**:
 
@@ -38,6 +44,7 @@ Default AI coding assistants act like chaotic junior developers: they **guess fi
 * 🧠 **Master Orchestration**: Automatically boots lifecycle hooks and coordinates multi-skill execution.
 * 📦 **Zero-Risk Worktrees**: Ephemeral git worktrees guarantee your primary branch is never corrupted during agent experiments.
 * 💾 **Cross-Session Memory**: Persists technical decisions and conventions in a local ledger across terminal restarts.
+* 🎨 **Production Frontend Auditing**: Clinical inspection of React/Vue/HTML templates for a11y, mobile responsive breaks, and hydration traps with interactive HTML reports.
 * 🔬 **Scientific TDD**: Prohibits editing source code until a minimal failing test reproduces the bug in isolation (`RED`).
 * ⚔️ **Offensive Red-Teaming**: Attacks functions with null-bytes, SQLi vectors, and boundary overflows before allowing a merge.
 * 📉 **60% Token Reduction**: AST interface compressor slashes LLM API costs while retaining 100% semantic clarity.
@@ -46,13 +53,14 @@ Default AI coding assistants act like chaotic junior developers: they **guess fi
 
 ---
 
-## 📦 The 9 Superpowers
+## 📦 The 10 Superpowers
 
 | Skill | Category | Primary Capability |
 | :--- | :--- | :--- |
 | [**`using-superpowers`**](skills/orchestration/using-superpowers/SKILL.md) | 🧠 Orchestration | Master bootstrap meta-skill; enforces the 7-stage engineering lifecycle |
 | [**`feature-brainstormer`**](skills/workflow/feature-brainstormer/SKILL.md) | 💡 Workflow | Socratic requirements refiner; asks 3 clarifying questions before coding |
 | [**`git-worktree-sandbox`**](skills/workflow/git-worktree-sandbox/SKILL.md) | 📦 Workflow | Ephemeral git worktree isolation; zero risk of breaking active workspace |
+| [**`frontend-sentinel`**](skills/frontend/frontend-sentinel/SKILL.md) | 🎨 Frontend | Production UI/UX auditor; checks a11y, mobile viewports & generates visual HTML reports |
 | [**`memory-nexus`**](skills/memory/memory-nexus/SKILL.md) | 💾 Memory | Cross-session architecture ledger; eliminates agent amnesia between restarts |
 | [**`ghost-runner`**](skills/debugging/ghost-runner/SKILL.md) | 🔍 Debugging | Zero-assumption bug reproducer; enforces strict RED ➔ GREEN TDD cycle |
 | [**`adversarial-duelist`**](skills/security/adversarial-duelist/SKILL.md) | 🛡️ Security | Pre-commit red-team fuzzer; injects malicious edge-case payloads |
@@ -63,6 +71,10 @@ Default AI coding assistants act like chaotic junior developers: they **guess fi
 ---
 
 ## ⚡ Universal Installation (1-Command)
+
+### 📦 Direct ZIP Download
+Prefer manual drag-and-drop?  
+👉 **[Download agent-superpowers-v1.2.0.zip](downloads/agent-superpowers-v1.2.0.zip?raw=true)** and unpack directly into your editor's skill directory.
 
 ### 🐧 macOS / Linux (Native Bash)
 ```bash
@@ -103,7 +115,7 @@ python cli/superpowers.py dashboard
 ## 🚀 Quick CLI Verification
 
 ```bash
-# List all 9 registered superpowers
+# List all 10 registered superpowers
 python cli/superpowers.py list
 
 # Validate specification compliance

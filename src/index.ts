@@ -7,7 +7,7 @@ export interface AgentSkill {
   name: string;
   version: string;
   description: string;
-  category: "orchestration" | "workflow" | "debugging" | "security" | "optimization" | "reverse-engineering" | "architecture";
+  category: "orchestration" | "workflow" | "frontend" | "memory" | "debugging" | "security" | "optimization" | "reverse-engineering" | "architecture";
   compatibility: string[];
   tags: string[];
 }
@@ -36,6 +36,22 @@ export const SUPERPOWERS_CATALOG: AgentSkill[] = [
     category: "workflow",
     compatibility: ["Claude Code", "Cursor", "Codex", "Antigravity", "Windsurf", "MCP"],
     tags: ["git", "worktree", "sandbox", "isolation"]
+  },
+  {
+    name: "memory-nexus",
+    version: "1.0.0",
+    description: "Cross-session architecture ledger eliminating agent amnesia across restarts.",
+    category: "memory",
+    compatibility: ["Claude Code", "Cursor", "Codex", "Antigravity", "Windsurf", "MCP"],
+    tags: ["memory", "state", "context"]
+  },
+  {
+    name: "frontend-sentinel",
+    version: "1.0.0",
+    description: "Production UI/UX auditor scanning components for accessibility and mobile responsive breaks.",
+    category: "frontend",
+    compatibility: ["Claude Code", "Cursor", "Codex", "Antigravity", "Windsurf", "MCP"],
+    tags: ["frontend", "ui-ux", "accessibility", "react"]
   },
   {
     name: "ghost-runner",

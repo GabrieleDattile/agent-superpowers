@@ -11,7 +11,7 @@ class TestAgentSuperpowers(unittest.TestCase):
     def test_all_skills_specification(self):
         """Validates that all skills meet the Agent Skill Specification."""
         skills = load_skills()
-        self.assertGreaterEqual(len(skills), 9, f"Expected at least 9 skills, found {len(skills)}")
+        self.assertGreaterEqual(len(skills), 10, f"Expected at least 10 skills, found {len(skills)}")
 
         required_keys = ["name", "version", "description", "author", "compatibility", "tags"]
         for skill in skills:
@@ -40,6 +40,18 @@ class DataService:
         self.assertIn("def fetch_records", compressed)
         self.assertIn("...", compressed)
         self.assertLessEqual(squeezer.estimate_tokens(compressed), squeezer.estimate_tokens(code))
+
+    def test_frontend_sentinel_scanner(self):
+        """Tests that frontend sentinel detects unhandled accessibility issues."""
+        import importlib.util
+        script_path = ROOT / "skills" / "frontend" / "frontend-sentinel" / "scripts" / "auditor.py"
+        spec = importlib.util.spec_from_file_location("auditor", str(script_path))
+        auditor = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(auditor)
+
+        bad_card = ROOT / "skills" / "frontend" / "frontend-sentinel" / "examples" / "bad_card.tsx"
+        findings = auditor.scan_file(bad_card)
+        self.assertGreaterEqual(len(findings), 3, "Expected at least 3 UI flaws detected")
 
 if __name__ == "__main__":
     unittest.main()
