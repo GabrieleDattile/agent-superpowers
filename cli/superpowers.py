@@ -85,6 +85,12 @@ def cmd_mcp():
     from mcp.server import main as mcp_main
     mcp_main()
 
+def cmd_dashboard():
+    import webbrowser
+    dash_path = ROOT_DIR / "dashboard" / "index.html"
+    console.print(f"[bold cyan]📊 Opening Agent Superpowers Dashboard:[/] {dash_path}")
+    webbrowser.open(dash_path.as_uri())
+
 def main():
     if len(sys.argv) < 2 or sys.argv[1] == "list":
         cmd_list()
@@ -92,8 +98,10 @@ def main():
         cmd_validate()
     elif sys.argv[1] == "serve-mcp":
         cmd_mcp()
+    elif sys.argv[1] == "dashboard":
+        cmd_dashboard()
     else:
-        console.print("[red]Unknown command. Available: `list`, `validate`, `serve-mcp`[/]")
+        console.print("[red]Unknown command. Available: `list`, `validate`, `serve-mcp`, `dashboard`[/]")
 
 if __name__ == "__main__":
     main()

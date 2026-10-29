@@ -40,6 +40,8 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Agent Superpowers Worktrees
+# Agent Superpowers Worktrees & Local Memory
 .worktrees/
-
+.superpowers/
+node_modules/
+dist/

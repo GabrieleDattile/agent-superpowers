@@ -1,7 +1,7 @@
 {
   "name": "agent-superpowers",
   "description": "Production-grade, battle-tested skills for autonomous AI software engineers: TDD reproduction, adversarial red-team fuzzing, token compression, architecture cartography, and worktree isolation.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "Gabriele Dattile",
     "email": "dattilegabriele@gmail.com",
@@ -23,5 +23,8 @@
     "mcp",
     "security"
   ],
+  "hooks": {
+    "sessionStart": "./hooks/run-hook.cmd"
+  },
   "skills": "./skills"
 }

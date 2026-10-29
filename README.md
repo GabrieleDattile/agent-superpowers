@@ -7,7 +7,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/GabrieleDattile/agent-superpowers?style=for-the-badge&color=yellow)](https://github.com/GabrieleDattile/agent-superpowers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
-[![Spec: v1.1.0](https://img.shields.io/badge/Spec-Agent%20Skills%20v1.1-brightgreen?style=for-the-badge)](docs/SPECIFICATION.md)
+[![Spec: v1.2.0](https://img.shields.io/badge/Spec-Agent%20Skills%20v1.2-brightgreen?style=for-the-badge)](docs/SPECIFICATION.md)
 [![MCP Server](https://img.shields.io/badge/MCP-Compatible-purple?style=for-the-badge)](mcp/server.py)
 [![Author](https://img.shields.io/badge/Created%20By-Gabriele%20Dattile-orange?style=for-the-badge)](https://github.com/GabrieleDattile)
 
@@ -24,7 +24,7 @@
 
 ## 💡 Why Agent Superpowers?
 
-Most AI coding assistants (like default Cursor or Claude sessions) act like chaotic junior developers: they **guess fixes, edit production files prematurely, blow through token limits, and introduce silent regressions**.
+Default AI coding assistants act like chaotic junior developers: they **guess fixes, edit production files prematurely, blow through token budgets, and forget past architectural choices**.
 
 **Agent Superpowers** equips your AI agent with a disciplined **7-Stage Autonomous Engineering Lifecycle**:
 
@@ -35,8 +35,9 @@ Most AI coding assistants (like default Cursor or Claude sessions) act like chao
 [7. MERGE / PR] <── [6. RED-TEAM FUZZ] <── [5. SURGICAL PATCH] <── [4. TDD PROOF (RED)]
 ```
 
-* 🧠 **Master Orchestration**: Automatically chains skills from brainstorming to isolated execution.
+* 🧠 **Master Orchestration**: Automatically boots lifecycle hooks and coordinates multi-skill execution.
 * 📦 **Zero-Risk Worktrees**: Ephemeral git worktrees guarantee your primary branch is never corrupted during agent experiments.
+* 💾 **Cross-Session Memory**: Persists technical decisions and conventions in a local ledger across terminal restarts.
 * 🔬 **Scientific TDD**: Prohibits editing source code until a minimal failing test reproduces the bug in isolation (`RED`).
 * ⚔️ **Offensive Red-Teaming**: Attacks functions with null-bytes, SQLi vectors, and boundary overflows before allowing a merge.
 * 📉 **60% Token Reduction**: AST interface compressor slashes LLM API costs while retaining 100% semantic clarity.
@@ -45,13 +46,14 @@ Most AI coding assistants (like default Cursor or Claude sessions) act like chao
 
 ---
 
-## 📦 The 8 Superpowers
+## 📦 The 9 Superpowers
 
 | Skill | Category | Primary Capability |
 | :--- | :--- | :--- |
 | [**`using-superpowers`**](skills/orchestration/using-superpowers/SKILL.md) | 🧠 Orchestration | Master bootstrap meta-skill; enforces the 7-stage engineering lifecycle |
 | [**`feature-brainstormer`**](skills/workflow/feature-brainstormer/SKILL.md) | 💡 Workflow | Socratic requirements refiner; asks 3 clarifying questions before coding |
 | [**`git-worktree-sandbox`**](skills/workflow/git-worktree-sandbox/SKILL.md) | 📦 Workflow | Ephemeral git worktree isolation; zero risk of breaking active workspace |
+| [**`memory-nexus`**](skills/memory/memory-nexus/SKILL.md) | 💾 Memory | Cross-session architecture ledger; eliminates agent amnesia between restarts |
 | [**`ghost-runner`**](skills/debugging/ghost-runner/SKILL.md) | 🔍 Debugging | Zero-assumption bug reproducer; enforces strict RED ➔ GREEN TDD cycle |
 | [**`adversarial-duelist`**](skills/security/adversarial-duelist/SKILL.md) | 🛡️ Security | Pre-commit red-team fuzzer; injects malicious edge-case payloads |
 | [**`token-squeezer`**](skills/optimization/token-squeezer/SKILL.md) | ⚡ Optimization | AST-based context compressor; cuts LLM prompt token costs by 50-70% |
@@ -60,62 +62,48 @@ Most AI coding assistants (like default Cursor or Claude sessions) act like chao
 
 ---
 
-## ⚡ 1-Click Universal Installation
+## ⚡ Universal Installation (1-Command)
 
-Agent Superpowers runs everywhere. Install all skills across your tools with a single command:
-
+### 🐧 macOS / Linux (Native Bash)
 ```bash
-git clone https://github.com/GabrieleDattile/agent-superpowers.git
-cd agent-superpowers
-python install.py --target all
+curl -fsSL https://raw.githubusercontent.com/GabrieleDattile/agent-superpowers/main/install.sh | bash
 ```
 
-Or deploy to a specific environment:
+### 🪟 Windows (Native PowerShell)
+```powershell
+irm https://raw.githubusercontent.com/GabrieleDattile/agent-superpowers/main/install.ps1 | iex
+```
 
-### 🟣 Claude Code (Native Plugin)
-Claude Code automatically recognizes the included `.claude-plugin/plugin.json`:
+### 📦 Node.js / NPX
 ```bash
-python install.py --target claude
+npx agent-superpowers list
 ```
 
-### 🔵 Cursor
-Injects native MDC rules into your workspace `.cursor/rules/`:
+---
+
+## 📊 Mission Control Dashboard
+
+Launch the interactive local visualizer to inspect architecture graphs, fuzzing telemetry, and token metrics:
 ```bash
-python install.py --target cursor
+python cli/superpowers.py dashboard
 ```
 
-### 🟠 Google Antigravity & Gemini CLI
-Installs directly into `.gemini/antigravity/skills` or via extension manifest:
-```bash
-python install.py --target antigravity
-```
+---
 
-### 🟢 OpenAI Codex
-Configures `.codex/` with automatic skill indexing:
-```bash
-python install.py --target codex
-```
+## 🛠️ Platform Integration
 
-### 🔌 Model Context Protocol (MCP) Server
-Plug Agent Superpowers into **Claude Desktop, Cursor, Zed, or OpenCode** via stdio JSON-RPC:
-```json
-{
-  "mcpServers": {
-    "agent-superpowers": {
-      "command": "python",
-      "args": ["-m", "mcp.server"]
-    }
-  }
-}
-```
+* **🟣 Claude Code**: Fully supported via native plugin manifest [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) and startup hooks in [`hooks/`](hooks/).
+* **🔵 Cursor**: Native rules in [`.cursor/rules/agent-superpowers.mdc`](.cursor/rules/agent-superpowers.mdc).
+* **🟠 Google Antigravity & Gemini CLI**: Native extension in [`extension.yaml`](extension.yaml).
+* **🟢 OpenAI Codex**: Configured via [`.codex/INSTALL.md`](.codex/INSTALL.md).
+* **🔌 Model Context Protocol (MCP)**: Run `python cli/superpowers.py serve-mcp` or plug [`mcp/server.py`](mcp/server.py) into Claude Desktop, Cursor, or Zed.
 
 ---
 
 ## 🚀 Quick CLI Verification
 
-Inspect registered skills and run automated CI checks locally:
 ```bash
-# List all 8 registered superpowers
+# List all 9 registered superpowers
 python cli/superpowers.py list
 
 # Validate specification compliance

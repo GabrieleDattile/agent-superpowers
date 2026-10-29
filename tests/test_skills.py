@@ -11,7 +11,7 @@ class TestAgentSuperpowers(unittest.TestCase):
     def test_all_skills_specification(self):
         """Validates that all skills meet the Agent Skill Specification."""
         skills = load_skills()
-        self.assertGreaterEqual(len(skills), 8, f"Expected at least 8 skills, found {len(skills)}")
+        self.assertGreaterEqual(len(skills), 9, f"Expected at least 9 skills, found {len(skills)}")
 
         required_keys = ["name", "version", "description", "author", "compatibility", "tags"]
         for skill in skills:

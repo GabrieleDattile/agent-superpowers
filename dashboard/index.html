@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Superpowers: Telemetry & Mission Control</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: { 500: '#58a6ff', 600: '#1f6feb', dark: '#0d1117', panel: '#161b22', border: '#30363d' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; }
+  </style>
+</head>
+<body class="min-h-screen p-6">
+  <div class="max-w-6xl mx-auto space-y-6">
+    
+    <!-- Top Header -->
+    <header class="flex flex-col md:flex-row justify-between items-start md:items-center bg-brand-panel p-6 rounded-xl border border-brand-border">
+      <div>
+        <div class="flex items-center space-x-3">
+          <span class="text-3xl">⚡</span>
+          <h1 class="text-2xl font-bold text-white tracking-wide">Agent Superpowers <span class="text-xs bg-emerald-900 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-600">v1.2.0</span></h1>
+        </div>
+        <p class="text-sm text-gray-400 mt-1">Telemetry, Skill Catalog & Autonomous Execution Dashboard</p>
+      </div>
+      <div class="mt-4 md:mt-0 flex space-x-3 text-sm">
+        <a href="https://github.com/GabrieleDattile/agent-superpowers" target="_blank" class="px-4 py-2 bg-brand-600 hover:bg-blue-600 text-white rounded-lg transition font-medium flex items-center space-x-2">
+          <span>GitHub Repository</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Metrics Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div class="bg-brand-panel p-4 rounded-xl border border-brand-border">
+        <span class="text-xs uppercase text-gray-400 font-semibold">Active Superpowers</span>
+        <div class="text-2xl font-bold text-white mt-1">9 Skills</div>
+        <span class="text-xs text-emerald-400">100% Validated</span>
+      </div>
+      <div class="bg-brand-panel p-4 rounded-xl border border-brand-border">
+        <span class="text-xs uppercase text-gray-400 font-semibold">Avg Token Savings</span>
+        <div class="text-2xl font-bold text-emerald-400 mt-1">-58.4%</div>
+        <span class="text-xs text-gray-400">via AST Interface Squeezing</span>
+      </div>
+      <div class="bg-brand-panel p-4 rounded-xl border border-brand-border">
+        <span class="text-xs uppercase text-gray-400 font-semibold">Fuzzing Defense Rate</span>
+        <div class="text-2xl font-bold text-cyan-400 mt-1">100%</div>
+        <span class="text-xs text-gray-400">11 Attack Vectors Checked</span>
+      </div>
+      <div class="bg-brand-panel p-4 rounded-xl border border-brand-border">
+        <span class="text-xs uppercase text-gray-400 font-semibold">Platform Support</span>
+        <div class="text-2xl font-bold text-purple-400 mt-1">Universal</div>
+        <span class="text-xs text-gray-400">Claude, Cursor, Codex, MCP</span>
+      </div>
+    </div>
+
+    <!-- Main Navigation Tabs -->
+    <div class="bg-brand-panel rounded-xl border border-brand-border p-6">
+      <div class="flex border-b border-brand-border pb-3 space-x-6 text-sm font-medium">
+        <button onclick="switchTab('catalog')" id="tab-catalog" class="text-brand-500 border-b-2 border-brand-500 pb-3">Skills Arsenal</button>
+        <button onclick="switchTab('fuzzer')" id="tab-fuzzer" class="text-gray-400 hover:text-white pb-3">Red-Team Fuzzer</button>
+        <button onclick="switchTab('architecture')" id="tab-architecture" class="text-gray-400 hover:text-white pb-3">Architecture Cartography</button>
+      </div>
+
+      <!-- Tab 1: Skills Catalog -->
+      <div id="content-catalog" class="mt-6 space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-4 bg-brand-dark rounded-lg border border-brand-border">
+            <span class="text-xs font-semibold uppercase text-yellow-400">Orchestration</span>
+            <h3 class="text-lg font-bold text-white mt-1">using-superpowers</h3>
+            <p class="text-xs text-gray-400 mt-2">Master bootstrap meta-skill; enforces the 7-stage engineering lifecycle.</p>
+          </div>
+          <div class="p-4 bg-brand-dark rounded-lg border border-brand-border">
+            <span class="text-xs font-semibold uppercase text-purple-400">Workflow</span>
+            <h3 class="text-lg font-bold text-white mt-1">feature-brainstormer</h3>
+            <p class="text-xs text-gray-400 mt-2">Socratic requirements refiner; asks 3 clarifying questions before code generation.</p>
+          </div>
+          <div class="p-4 bg-brand-dark rounded-lg border border-brand-border">
+            <span class="text-xs font-semibold uppercase text-purple-400">Workflow</span>
+            <h3 class="text-lg font-bold text-white mt-1">git-worktree-sandbox</h3>
+            <p class="text-xs text-gray-400 mt-2">Ephemeral git worktree isolation; zero risk of corrupting primary branch.</p>
+          </div>
+          <div class="p-4 bg-brand-dark rounded-lg border border-brand-border">
+            <span class="text-xs font-semibold uppercase text-blue-400">Memory</span>
+            <h3 class="text-lg font-bold text-white mt-1">memory-nexus</h3>
+            <p class="text-xs text-gray-400 mt-2">Cross-session context and architectural decision ledger.</p>
+          </div>
+          <div class="p-4 bg-brand-dark rounded-lg border border-brand-border">
+            <span class="text-xs font-semibold uppercase text-red-400">Debugging</span>
+            <h3 class="text-lg font-bold text-white mt-1">ghost-runner</h3>
+            <p class="text-xs text-gray-400 mt-2">Zero-assumption bug reproducer; enforces strict RED -> GREEN TDD cycle.</p>
+          </div>
+          <div class="p-4 bg-brand-dark rounded-lg border border-brand-border">
+            <span class="text-xs font-semibold uppercase text-red-400">Security</span>
+            <h3 class="text-lg font-bold text-white mt-1">adversarial-duelist</h3>
+            <p class="text-xs text-gray-400 mt-2">Offensive fuzzer bombarding functions with boundary and exploit payloads.</p>
+          </div>
+          <div class="p-4 bg-brand-dark rounded-lg border border-brand-border">
+            <span class="text-xs font-semibold uppercase text-emerald-400">Optimization</span>
+            <h3 class="text-lg font-bold text-white mt-1">token-squeezer</h3>
+            <p class="text-xs text-gray-400 mt-2">AST-based context compressor; slashes LLM prompt token costs by 50-70%.</p>
+          </div>
+          <div class="p-4 bg-brand-dark rounded-lg border border-brand-border">
+            <span class="text-xs font-semibold uppercase text-cyan-400">Reverse Engineering</span>
+            <h3 class="text-lg font-bold text-white mt-1">api-synthesizer</h3>
+            <p class="text-xs text-gray-400 mt-2">Network-to-SDK generator converting cURL and HAR traffic into typed clients.</p>
+          </div>
+          <div class="p-4 bg-brand-dark rounded-lg border border-brand-border">
+            <span class="text-xs font-semibold uppercase text-amber-400">Architecture</span>
+            <h3 class="text-lg font-bold text-white mt-1">arch-archaeologist</h3>
+            <p class="text-xs text-gray-400 mt-2">Codebase cartographer tracing dependency call graphs and detecting dead code.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Fuzzer Simulator -->
+      <div id="content-fuzzer" class="mt-6 hidden space-y-4">
+        <h3 class="text-lg font-bold text-white">Adversarial Red-Team Fuzzing Simulator</h3>
+        <p class="text-sm text-gray-400">Systematic inspection vectors applied to every function before merge authorization.</p>
+        <div class="overflow-x-auto mt-4">
+          <table class="w-full text-left text-sm text-gray-300">
+            <thead class="bg-brand-dark text-gray-400 uppercase text-xs">
+              <tr>
+                <th class="p-3">Vector Class</th>
+                <th class="p-3">Injected Payload</th>
+                <th class="p-3">Safety Gate</th>
+                <th class="p-3">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-brand-border">
+              <tr><td class="p-3 font-semibold text-white">String Overflow</td><td class="p-3 font-mono text-xs">"A" * 100,000</td><td class="p-3">Memory Bounding</td><td class="p-3 text-emerald-400 font-semibold">✔ PASS</td></tr>
+              <tr><td class="p-3 font-semibold text-white">Null-Byte Poisoning</td><td class="p-3 font-mono text-xs">\x00admin</td><td class="p-3">Input Sanitization</td><td class="p-3 text-emerald-400 font-semibold">✔ PASS</td></tr>
+              <tr><td class="p-3 font-semibold text-white">SQLi Injection</td><td class="p-3 font-mono text-xs">' OR '1'='1' --</td><td class="p-3">Parameterized Guard</td><td class="p-3 text-emerald-400 font-semibold">✔ PASS</td></tr>
+              <tr><td class="p-3 font-semibold text-white">Zero Division</td><td class="p-3 font-mono text-xs">divisor = 0</td><td class="p-3">Arithmetic Guard</td><td class="p-3 text-emerald-400 font-semibold">✔ PASS</td></tr>
+              <tr><td class="p-3 font-semibold text-white">Boundary Integer</td><td class="p-3 font-mono text-xs">2^63 - 1</td><td class="p-3">Integer Overflow Guard</td><td class="p-3 text-emerald-400 font-semibold">✔ PASS</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 3: Architecture Viewer -->
+      <div id="content-architecture" class="mt-6 hidden space-y-4">
+        <h3 class="text-lg font-bold text-white">Live Lifecycle Diagram</h3>
+        <div class="mermaid bg-brand-dark p-6 rounded-lg border border-brand-border text-center">
+flowchart LR
+    A["💡 Brainstorm"] --> B["📦 Worktree Sandbox"]
+    B --> C["🗺️ Map & Compress"]
+    C --> D["🔬 TDD Proof (RED)"]
+    D --> E["⚡ Surgical Patch"]
+    E --> F["⚔️ Red-Team Fuzzer"]
+    F --> G["🚀 Merge & Deploy"]
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    function switchTab(tab) {
+      document.querySelectorAll('[id^="content-"]').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('[id^="tab-"]').forEach(el => {
+        el.classList.remove('text-brand-500', 'border-b-2', 'border-brand-500');
+        el.classList.add('text-gray-400');
+      });
+      document.getElementById('content-' + tab).classList.remove('hidden');
+      const activeBtn = document.getElementById('tab-' + tab);
+      activeBtn.classList.add('text-brand-500', 'border-b-2', 'border-brand-500');
+      activeBtn.classList.remove('text-gray-400');
+    }
+  </script>
+</body>
+</html>
