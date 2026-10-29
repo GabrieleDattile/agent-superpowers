@@ -1,0 +1,4 @@
+curl -X POST https://api.example.com/v1/orders \
+  -H "Authorization: Bearer secret_live_token_12345" \
+  -H "Content-Type: application/json" \
+  -d '{"customer_id": "cust_9988", "items": [{"id": "item_1", "qty": 2}], "currency": "EUR"}'

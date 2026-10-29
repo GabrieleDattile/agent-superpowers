@@ -1,0 +1,44 @@
+name: Propose a New Skill
+description: Suggest or submit a new autonomous AI skill to the repository
+title: "[Skill Proposal]: "
+labels: ["skill", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a new Agent Skill! Please ensure your proposal meets our criteria for high-impact autonomous workflows.
+  - type: input
+    id: skill_name
+    attributes:
+      label: Skill Name
+      description: e.g. `memory-graph-rag`, `docker-sandbox-runner`
+      placeholder: my-awesome-skill
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - debugging
+        - security-and-audit
+        - performance-and-cost
+        - reverse-engineering
+        - architecture
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: pain_point
+    attributes:
+      label: Problem & Pain Point
+      description: What specific real-world developer problem does this skill solve?
+    validations:
+      required: true
+  - type: textarea
+    id: agent_workflow
+    attributes:
+      label: Autonomous Workflow
+      description: How does the agent execute this skill step-by-step?
+    validations:
+      required: true
