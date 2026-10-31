@@ -53,5 +53,19 @@ class DataService:
         findings = auditor.scan_file(bad_card)
         self.assertGreaterEqual(len(findings), 3, "Expected at least 3 UI flaws detected")
 
+    def test_blackbox_cloner_deconstruct(self):
+        """Tests that blackbox cloner deconstructs a tool into clean-room architecture."""
+        import importlib.util
+        script_path = ROOT / "skills" / "reverse-engineering" / "blackbox-cloner" / "scripts" / "cloner.py"
+        spec = importlib.util.spec_from_file_location("cloner", str(script_path))
+        cloner = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cloner)
+
+        res = cloner.deconstruct_tool("AdobePhotoshopClone", category="graphics")
+        self.assertEqual(res["tool_name"], "AdobePhotoshopClone")
+        self.assertIn("spec", res)
+        self.assertIn("layers", str(res["spec"]["state"]))
+        self.assertIn("Ctrl/Cmd + Z", res["spec"]["shortcuts"])
+
 if __name__ == "__main__":
     unittest.main()

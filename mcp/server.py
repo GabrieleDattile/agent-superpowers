@@ -101,6 +101,19 @@ TOOLS = [
             },
             "required": ["path"]
         }
+    },
+    {
+        "name": "blackbox_cloner",
+        "description": "Clean-room reverse engineering engine. Deconstructs proprietary tools and SaaS widgets into independent open-source specs and scaffolds.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "action": {"type": "string", "enum": ["deconstruct", "scaffold"], "description": "'deconstruct' analyzes architecture, 'scaffold' builds clean-room prototype"},
+                "tool_name": {"type": "string", "description": "Name or concept of tool to replicate"},
+                "category": {"type": "string", "enum": ["graphics", "vector", "utility"], "default": "graphics"}
+            },
+            "required": ["action", "tool_name"]
+        }
     }
 ]
 
@@ -143,6 +156,17 @@ def handle_call_tool(name: str, args: dict):
         path = args["path"]
         rep = f'--html-report "{args["html_report"]}"' if args.get("html_report") else ""
         cmd = f'python skills/frontend/frontend-sentinel/scripts/auditor.py --path "{path}" {rep}'.strip()
+        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
+        return res.stdout or res.stderr
+
+    elif name == "blackbox_cloner":
+        action = args["action"]
+        tool_name = args["tool_name"]
+        cat = args.get("category", "graphics")
+        if action == "deconstruct":
+            cmd = f'python skills/reverse-engineering/blackbox-cloner/scripts/cloner.py deconstruct --tool "{tool_name}" --category "{cat}"'
+        else:
+            cmd = f'python skills/reverse-engineering/blackbox-cloner/scripts/cloner.py scaffold --tool "{tool_name}"'
         res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
         return res.stdout or res.stderr
 

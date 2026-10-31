@@ -53,7 +53,7 @@ Default AI coding assistants act like chaotic junior developers: they **guess fi
 
 ---
 
-## 📦 The 10 Superpowers
+## 📦 The 11 Superpowers
 
 | Skill | Category | Primary Capability |
 | :--- | :--- | :--- |
@@ -66,6 +66,7 @@ Default AI coding assistants act like chaotic junior developers: they **guess fi
 | [**`adversarial-duelist`**](skills/security/adversarial-duelist/SKILL.md) | 🛡️ Security | Pre-commit red-team fuzzer; injects malicious edge-case payloads |
 | [**`token-squeezer`**](skills/optimization/token-squeezer/SKILL.md) | ⚡ Optimization | AST-based context compressor; cuts LLM prompt token costs by 50-70% |
 | [**`api-synthesizer`**](skills/reverse-engineering/api-synthesizer/SKILL.md) | 🔌 Integration | Network-to-SDK generator; converts cURL traffic into typed Python clients |
+| [**`blackbox-cloner`**](skills/reverse-engineering/blackbox-cloner/SKILL.md) | 🕵️ Reverse Engineering | Clean-room tool replicator; deconstructs proprietary software into open-source scaffolds |
 | [**`arch-archaeologist`**](skills/architecture/arch-archaeologist/SKILL.md) | 🗺️ Architecture | Codebase cartographer; traces dependency graphs and isolates dead code |
 
 ---
@@ -115,7 +116,7 @@ python cli/superpowers.py dashboard
 ## 🚀 Quick CLI Verification
 
 ```bash
-# List all 10 registered superpowers
+# List all 11 registered superpowers
 python cli/superpowers.py list
 
 # Validate specification compliance
