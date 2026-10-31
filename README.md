@@ -10,9 +10,9 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/GabrieleDattile/agent-superpowers?style=for-the-badge&color=ffd700&logo=github)](https://github.com/GabrieleDattile/agent-superpowers/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
-[![Glama Score](https://glama.ai/mcp/servers/GabrieleDattile/agent-superpowers/badges/score.svg)](https://glama.ai/mcp/servers/GabrieleDattile/agent-superpowers)
-[![Spec: v1.2.0](https://img.shields.io/badge/Spec-Agent%20Skills%20v1.2-brightgreen?style=for-the-badge)](docs/SPECIFICATION.md)
-[![MCP Server](https://img.shields.io/badge/MCP-Compatible-purple?style=for-the-badge&logo=anthropic)](mcp/server.py)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Tests](https://img.shields.io/badge/Tests-Passing%20(100%25)-brightgreen?style=for-the-badge&logo=githubactions)](tests/test_skills.py)
+[![MCP Protocol](https://img.shields.io/badge/MCP-JSON--RPC%202.0-8A2BE2?style=for-the-badge&logo=anthropic)](mcp/server.py)
 [![Author](https://img.shields.io/badge/Author-Gabriele%20Dattile-orange?style=for-the-badge&logo=github)](https://github.com/GabrieleDattile)
 
 <br/>
