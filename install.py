@@ -36,25 +36,30 @@ def install_cursor():
     dest = Path.cwd() / ".cursor" / "rules"
     dest.mkdir(parents=True, exist_ok=True)
     rule_src = ROOT / ".cursor" / "rules" / "agent-superpowers.mdc"
-    if rule_src.exists():
-        shutil.copy2(rule_src, dest / "agent-superpowers.mdc")
+    rule_dst = dest / "agent-superpowers.mdc"
+    if rule_src.exists() and rule_src.resolve() != rule_dst.resolve():
+        shutil.copy2(rule_src, rule_dst)
     console.print(f"[bold green]✔ Installed into Cursor:[/] {dest}")
 
 def install_antigravity():
     dest = Path.home() / ".gemini" / "antigravity" / "skills"
+    dest_config = Path.home() / ".gemini" / "config" / "skills"
     dest.mkdir(parents=True, exist_ok=True)
+    dest_config.mkdir(parents=True, exist_ok=True)
     for skill_dir in SKILLS_SRC.rglob("SKILL.md"):
         target_name = skill_dir.parent.name
         target_dest = dest / target_name
         shutil.copytree(skill_dir.parent, target_dest, dirs_exist_ok=True)
-    console.print(f"[bold green]✔ Installed into Antigravity:[/] {dest}")
+        shutil.copytree(skill_dir.parent, dest_config / target_name, dirs_exist_ok=True)
+    console.print(f"[bold green]✔ Installed into Antigravity:[/] {dest} & {dest_config}")
 
 def install_codex():
     dest = Path.cwd() / ".codex"
     dest.mkdir(parents=True, exist_ok=True)
     codex_src = ROOT / ".codex" / "INSTALL.md"
-    if codex_src.exists():
-        shutil.copy2(codex_src, dest / "INSTALL.md")
+    codex_dst = dest / "INSTALL.md"
+    if codex_src.exists() and codex_src.resolve() != codex_dst.resolve():
+        shutil.copy2(codex_src, codex_dst)
     console.print(f"[bold green]✔ Configured for Codex:[/] {dest}")
 
 def main():
