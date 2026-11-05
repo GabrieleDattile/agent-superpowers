@@ -209,6 +209,15 @@ def cmd_dashboard():
     log(f"[bold cyan]📊 Opening Agent Superpowers Dashboard:[/] {dash_path}")
     webbrowser.open(dash_path.as_uri())
 
+def cmd_install():
+    log("[bold cyan]🚀 Running Agent Superpowers universal installer...[/]")
+    if sys.platform == "win32":
+        ps1 = ROOT_DIR / "install.ps1"
+        subprocess.run(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(ps1)], cwd=ROOT_DIR)
+    else:
+        sh = ROOT_DIR / "install.sh"
+        subprocess.run(["bash", str(sh)], cwd=ROOT_DIR)
+
 def main():
     if len(sys.argv) < 2 or sys.argv[1] == "list":
         cmd_list()
@@ -216,6 +225,8 @@ def main():
         cmd_validate()
     elif sys.argv[1] == "status":
         cmd_status()
+    elif sys.argv[1] == "install":
+        cmd_install()
     elif sys.argv[1] == "run":
         cmd_run(sys.argv[2:])
     elif sys.argv[1] == "serve-mcp":
@@ -223,7 +234,7 @@ def main():
     elif sys.argv[1] == "dashboard":
         cmd_dashboard()
     else:
-        log("[red]Unknown command. Available: `list`, `status`, `run`, `validate`, `serve-mcp`, `dashboard`[/]")
+        log("[red]Unknown command. Available: `list`, `status`, `install`, `run`, `validate`, `serve-mcp`, `dashboard`[/]")
 
 if __name__ == "__main__":
     main()
