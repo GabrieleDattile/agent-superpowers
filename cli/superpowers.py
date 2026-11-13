@@ -77,7 +77,7 @@ def load_skills():
 def cmd_list():
     skills = load_skills()
     if HAS_RICH and console:
-        table = Table(title="⚡ Agent Superpowers: Registered Skills (11)", show_lines=True)
+        table = Table(title=f"⚡ Agent Superpowers: Registered Skills ({len(skills)})", show_lines=True)
         table.add_column("Skill Name", style="bold cyan")
         table.add_column("Category", style="yellow")
         table.add_column("Version", style="dim")
@@ -92,7 +92,7 @@ def cmd_list():
             )
         console.print(table)
     else:
-        print("\n=== ⚡ Agent Superpowers: Registered Skills (11) ===")
+        print(f"\n=== ⚡ Agent Superpowers: Registered Skills ({len(skills)}) ===")
         print(f"{'NAME':<24} | {'CATEGORY':<18} | {'VERSION':<8} | {'DESCRIPTION'}")
         print("-" * 80)
         for s in sorted(skills, key=lambda x: (x.get("category", ""), x.get("name", ""))):
@@ -123,9 +123,9 @@ def cmd_validate():
         sys.exit(1)
     else:
         if HAS_RICH and console:
-            console.print(Panel("[bold green]All 11 skills passed specification checks successfully![/]", title="CI Validation"))
+            console.print(Panel(f"[bold green]All {len(skills)} skills passed specification checks successfully![/]", title="CI Validation"))
         else:
-            print("\n✔ All 11 skills passed specification checks successfully!\n")
+            print(f"\n✔ All {len(skills)} skills passed specification checks successfully!\n")
 
 def cmd_status():
     log("[bold cyan]=== Agent Superpowers: System Health & Integrations ===[/]\n")

@@ -115,21 +115,74 @@ Every coding task executes through an auditable, deterministic state machine:
 
 ---
 
-## 📦 The 11 Autonomous Superpowers
+## 📦 The Autonomous Superpowers Suite (35 Skills)
 
+### 🧠 Core Orchestration & Lifecycle
 | Superpower | Category | Primary Capability |
 | :--- | :--- | :--- |
 | [**`using-superpowers`**](skills/orchestration/using-superpowers/SKILL.md) | 🧠 Orchestration | Master bootstrap meta-skill; enforces the 7-stage engineering lifecycle |
 | [**`feature-brainstormer`**](skills/workflow/feature-brainstormer/SKILL.md) | 💡 Workflow | Socratic requirements refiner; asks 3 clarifying questions before writing code |
 | [**`git-worktree-sandbox`**](skills/workflow/git-worktree-sandbox/SKILL.md) | 📦 Workflow | Ephemeral git worktree isolation; zero risk of corrupting your active workspace |
-| [**`frontend-sentinel`**](skills/frontend/frontend-sentinel/SKILL.md) | 🎨 Frontend | Production UI/UX auditor; checks a11y, mobile viewports & generates visual HTML reports |
-| [**`memory-nexus`**](skills/memory/memory-nexus/SKILL.md) | 💾 Memory | Cross-session architecture ledger; eliminates agent amnesia between restarts |
+
+### 🔍 Debugging & Verification
+| Superpower | Category | Primary Capability |
+| :--- | :--- | :--- |
 | [**`ghost-runner`**](skills/debugging/ghost-runner/SKILL.md) | 🔍 Debugging | Zero-assumption bug reproducer; enforces strict RED ➔ GREEN TDD cycle |
+| [**`testsprite-verify`**](skills/testing/testsprite-verify/SKILL.md) | 🧪 Testing | Closed-loop automated regression and user flow verification |
+| [**`testsprite-ci`**](skills/testing/testsprite-ci/SKILL.md) | 🧪 Testing | CI pipeline test automation and test suite orchestration |
+
+### 🛡️ Security & Reverse Engineering
+| Superpower | Category | Primary Capability |
+| :--- | :--- | :--- |
 | [**`adversarial-duelist`**](skills/security/adversarial-duelist/SKILL.md) | 🛡️ Security | Pre-commit red-team fuzzer; injects malicious edge-case payloads |
-| [**`token-squeezer`**](skills/optimization/token-squeezer/SKILL.md) | ⚡ Optimization | AST-based context compressor; cuts LLM prompt token costs by 50–70% |
-| [**`api-synthesizer`**](skills/reverse-engineering/api-synthesizer/SKILL.md) | 🔌 Integration | Network-to-SDK generator; converts cURL traffic into typed Python client SDKs |
 | [**`blackbox-cloner`**](skills/reverse-engineering/blackbox-cloner/SKILL.md) | 🕵️ Reverse Engineering | Clean-room tool replicator; deconstructs proprietary software into open-source scaffolds |
+| [**`api-synthesizer`**](skills/reverse-engineering/api-synthesizer/SKILL.md) | 🔌 Integration | Network-to-SDK generator; converts cURL traffic into typed Python client SDKs |
+
+### 🗺️ Architecture & Memory
+| Superpower | Category | Primary Capability |
+| :--- | :--- | :--- |
 | [**`arch-archaeologist`**](skills/architecture/arch-archaeologist/SKILL.md) | 🗺️ Architecture | Codebase cartographer; traces dependency graphs and isolates dead zombie functions |
+| [**`graphify`**](skills/architecture/graphify/SKILL.md) | 🗺️ Architecture | AST-driven persistent knowledge graph of codebases, schemas, and docs without vector DB |
+| [**`hindsight-architect`**](skills/architecture/hindsight-architect/SKILL.md) | 🗺️ Architecture | Memory architect for application design patterns and decisions |
+| [**`memory-nexus`**](skills/memory/memory-nexus/SKILL.md) | 💾 Memory | Cross-session architecture ledger; eliminates agent amnesia between restarts |
+| [**`hindsight-memory`**](skills/memory/hindsight-memory/SKILL.md) | 💾 Memory | Adaptive long-term project memory and automatic session synthesis |
+
+### ⚡ Optimization & Token Efficiency
+| Superpower | Category | Primary Capability |
+| :--- | :--- | :--- |
+| [**`token-squeezer`**](skills/optimization/token-squeezer/SKILL.md) | ⚡ Optimization | AST-based context compressor; cuts LLM prompt token costs by 50–70% |
+| [**`caveman`**](skills/optimization/caveman/SKILL.md) | ⚡ Optimization | Terse smart-caveman voice; eliminates fluff while preserving all technical facts |
+| [**`caveman-compress`**](skills/optimization/caveman-compress/SKILL.md) | ⚡ Optimization | Extreme token compression for memory files and long context |
+| [**`prompt-optimizer`**](skills/optimization/prompt-optimizer/SKILL.md) | ⚡ Optimization | Systematic prompt evaluation, few-shot generation, and constraint tuning |
+
+### 🎨 Frontend & UI/UX
+| Superpower | Category | Primary Capability |
+| :--- | :--- | :--- |
+| [**`frontend-sentinel`**](skills/frontend/frontend-sentinel/SKILL.md) | 🎨 Frontend | Production UI/UX auditor; checks a11y, mobile viewports & generates visual HTML reports |
+| [**`figma-designer`**](skills/frontend/figma-designer/SKILL.md) | 🎨 Frontend | Token-driven Figma design specs, components, auto-layout, and design systems |
+| [**`landing-page-design`**](skills/frontend/landing-page-design/SKILL.md) | 🎨 Frontend | High-converting landing page blueprints, copywriting, and visual structure |
+| [**`review-frontend-production`**](skills/frontend/review-frontend-production/SKILL.md) | 🎨 Frontend | Production frontend inspection, compliance checks, and handover verification |
+
+### 🕸️ Web Data, Scraping & Social
+| Superpower | Category | Primary Capability |
+| :--- | :--- | :--- |
+| [**`scrapling`**](skills/scraping/scrapling/SKILL.md) | 🕸️ Scraping | Adaptive web scraping framework with anti-bot bypass and stealth browser sessions |
+| [**`firecrawl-build`**](skills/scraping/firecrawl-build/SKILL.md) | 🕸️ Scraping | In-app Firecrawl integration for live web data, extraction, and search |
+| [**`firecrawl-scrape`**](skills/scraping/firecrawl-scrape/SKILL.md) | 🕸️ Scraping | Single-page extraction into structured markdown |
+| [**`firecrawl-search`**](skills/scraping/firecrawl-search/SKILL.md) | 🕸️ Scraping | Agent web discovery before extraction |
+| [**`firecrawl-interact`**](skills/scraping/firecrawl-interact/SKILL.md) | 🕸️ Scraping | Post-scrape browser actions, form filling, and pagination |
+| [**`firecrawl-onboard`**](skills/scraping/firecrawl-onboard/SKILL.md) | 🕸️ Scraping | Firecrawl SDK credentials, auth flows, and project onboarding |
+| [**`agent-reach`**](skills/scraping/agent-reach/SKILL.md) | 🕸️ Scraping | Zero-API reading and search across X, Reddit, YouTube transcripts, and GitHub |
+
+### 📐 Lean Engineering & Workflow
+| Superpower | Category | Primary Capability |
+| :--- | :--- | :--- |
+| [**`ponytail`**](skills/workflow/ponytail/SKILL.md) | 📐 Workflow | YAGNI principal engineer mindset; smallest change that fully solves the task |
+| [**`ponytail-audit`**](skills/workflow/ponytail-audit/SKILL.md) | 📐 Workflow | Whole-repo bloat and unnecessary dependency audit |
+| [**`ponytail-debt`**](skills/workflow/ponytail-debt/SKILL.md) | 📐 Workflow | Technical debt and shortcut tracking ledger |
+| [**`ponytail-review`**](skills/workflow/ponytail-review/SKILL.md) | 📐 Workflow | Pull request quality and anti-overengineering reviewer |
+| [**`caveman-commit`**](skills/workflow/caveman-commit/SKILL.md) | 📐 Workflow | Intent-only Conventional Commits generator |
+| [**`video-shotcraft`**](skills/multimedia/video-shotcraft/SKILL.md) | 🎬 Multimedia | Programmatic Remotion cinematic product video synthesis |
 
 ---
 

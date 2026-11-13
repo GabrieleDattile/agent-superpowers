@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "agent-superpowers"
-version = "1.0.0"
+version = "1.2.0"
 description = "Production-grade, battle-tested skills for autonomous AI software engineers."
 readme = "README.md"
 authors = [{ name = "Gabriele Dattile", email = "dattilegabriele@gmail.com" }]
