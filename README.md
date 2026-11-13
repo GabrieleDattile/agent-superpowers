@@ -237,7 +237,7 @@ python cli/superpowers.py dashboard
 Agent Superpowers includes a built-in verification suite:
 
 ```bash
-# List all 11 registered superpowers
+# List all 35 registered superpowers
 python cli/superpowers.py list
 
 # Validate specification compliance
