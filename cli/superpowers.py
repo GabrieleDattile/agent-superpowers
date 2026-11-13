@@ -139,7 +139,8 @@ def cmd_status():
         "Blackbox Cloner": ROOT_DIR / "skills" / "reverse-engineering" / "blackbox-cloner" / "scripts" / "cloner.py",
         "Arch Archaeologist": ROOT_DIR / "skills" / "architecture" / "arch-archaeologist" / "scripts" / "archaeologist.py",
         "Worktree Sandbox": ROOT_DIR / "skills" / "workflow" / "git-worktree-sandbox" / "scripts" / "worktree.py",
-        "Frontend Sentinel": ROOT_DIR / "skills" / "frontend" / "frontend-sentinel" / "scripts" / "auditor.py"
+        "Frontend Sentinel": ROOT_DIR / "skills" / "frontend" / "frontend-sentinel" / "scripts" / "auditor.py",
+        "Hallmark Sloplint": ROOT_DIR / "skills" / "frontend" / "hallmark" / "scripts" / "sloplint.py"
     }
 
     all_scripts_ok = True
@@ -188,7 +189,9 @@ def cmd_run(args):
         "cloner": ROOT_DIR / "skills" / "reverse-engineering" / "blackbox-cloner" / "scripts" / "cloner.py",
         "archaeologist": ROOT_DIR / "skills" / "architecture" / "arch-archaeologist" / "scripts" / "archaeologist.py",
         "worktree": ROOT_DIR / "skills" / "workflow" / "git-worktree-sandbox" / "scripts" / "worktree.py",
-        "auditor": ROOT_DIR / "skills" / "frontend" / "frontend-sentinel" / "scripts" / "auditor.py"
+        "auditor": ROOT_DIR / "skills" / "frontend" / "frontend-sentinel" / "scripts" / "auditor.py",
+        "sloplint": ROOT_DIR / "skills" / "frontend" / "hallmark" / "scripts" / "sloplint.py",
+        "hallmark": ROOT_DIR / "skills" / "frontend" / "hallmark" / "scripts" / "sloplint.py"
     }
 
     script_path = routes.get(engine)

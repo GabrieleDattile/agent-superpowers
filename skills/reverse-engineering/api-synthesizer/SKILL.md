@@ -3,7 +3,7 @@ name: api-synthesizer
 version: 1.0.0
 description: Autonomous API reverse-engineering engine. Converts raw network traffic (cURL commands or HAR files) into fully typed Python/TypeScript client SDKs.
 author: Gabriele Dattile (https://github.com/GabrieleDattile)
-compatibility: [Claude Code, Cursor, Windsurf, Gemini CLI, Copilot, MCP]
+compatibility: [Claude Code, Cursor, Codex, Antigravity, Windsurf, Gemini CLI, Copilot, MCP]
 tags: [reverse-engineering, api, sdk-generation, networking]
 ---
 

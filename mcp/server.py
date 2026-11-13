@@ -114,6 +114,17 @@ TOOLS = [
             },
             "required": ["action", "tool_name"]
         }
+    },
+    {
+        "name": "hallmark_sloplint",
+        "description": "Anti-AI-slop design auditor. Scans HTML, JSX, TSX, Svelte, and Vue files for generic AI tells (purple gradients, predictable 3-card grids, unanchored blur orbs, corporate buzzwords).",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "target": {"type": "string", "description": "Path to file or directory to scan", "default": "."},
+                "fail_under": {"type": "integer", "description": "Slop score failure threshold (default: 25)", "default": 25}
+            }
+        }
     }
 ]
 
@@ -167,6 +178,13 @@ def handle_call_tool(name: str, args: dict):
             cmd = f'python skills/reverse-engineering/blackbox-cloner/scripts/cloner.py deconstruct --tool "{tool_name}" --category "{cat}"'
         else:
             cmd = f'python skills/reverse-engineering/blackbox-cloner/scripts/cloner.py scaffold --tool "{tool_name}"'
+        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
+        return res.stdout or res.stderr
+
+    elif name == "hallmark_sloplint":
+        target = args.get("target", ".")
+        fail_under = args.get("fail_under", 25)
+        cmd = f'python skills/frontend/hallmark/scripts/sloplint.py "{target}" --json --fail-under {fail_under}'
         res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
         return res.stdout or res.stderr
 

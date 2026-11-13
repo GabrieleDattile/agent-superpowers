@@ -115,7 +115,7 @@ Every coding task executes through an auditable, deterministic state machine:
 
 ---
 
-## 📦 The Autonomous Superpowers Suite (35 Skills)
+## 📦 The Autonomous Superpowers Suite (36 Skills)
 
 ### 🧠 Core Orchestration & Lifecycle
 | Superpower | Category | Primary Capability |
@@ -159,6 +159,7 @@ Every coding task executes through an auditable, deterministic state machine:
 | Superpower | Category | Primary Capability |
 | :--- | :--- | :--- |
 | [**`frontend-sentinel`**](skills/frontend/frontend-sentinel/SKILL.md) | 🎨 Frontend | Production UI/UX auditor; checks a11y, mobile viewports & generates visual HTML reports |
+| [**`hallmark`**](skills/frontend/hallmark/SKILL.md) | 🎨 Frontend | Anti-AI-slop design engine; overrides generic purple gradients with 24 material themes & sloplint |
 | [**`figma-designer`**](skills/frontend/figma-designer/SKILL.md) | 🎨 Frontend | Token-driven Figma design specs, components, auto-layout, and design systems |
 | [**`landing-page-design`**](skills/frontend/landing-page-design/SKILL.md) | 🎨 Frontend | High-converting landing page blueprints, copywriting, and visual structure |
 | [**`review-frontend-production`**](skills/frontend/review-frontend-production/SKILL.md) | 🎨 Frontend | Production frontend inspection, compliance checks, and handover verification |
@@ -237,7 +238,7 @@ python cli/superpowers.py dashboard
 Agent Superpowers includes a built-in verification suite:
 
 ```bash
-# List all 35 registered superpowers
+# List all 36 registered superpowers
 python cli/superpowers.py list
 
 # Validate specification compliance

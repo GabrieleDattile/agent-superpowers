@@ -67,5 +67,24 @@ class DataService:
         self.assertIn("layers", str(res["spec"]["state"]))
         self.assertIn("Ctrl/Cmd + Z", res["spec"]["shortcuts"])
 
+    def test_hallmark_sloplint(self):
+        """Tests that Hallmark Sloplint detects AI slop tells."""
+        import importlib.util
+        script_path = ROOT / "skills" / "frontend" / "hallmark" / "scripts" / "sloplint.py"
+        spec = importlib.util.spec_from_file_location("sloplint", str(script_path))
+        sloplint = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(sloplint)
+
+        slop_file = ROOT / "skills" / "frontend" / "hallmark" / "examples" / "slop_page.html"
+        findings = sloplint.scan_file(slop_file)
+        self.assertGreaterEqual(len(findings), 5, "Expected at least 5 AI slop tells detected")
+        score = sloplint.calculate_slop_score(findings)
+        self.assertGreaterEqual(score, 50, "Expected high slop score on slop_page.html")
+
+        clean_file = ROOT / "skills" / "frontend" / "hallmark" / "examples" / "hallmark_clean_page.html"
+        clean_findings = sloplint.scan_file(clean_file)
+        clean_score = sloplint.calculate_slop_score(clean_findings)
+        self.assertEqual(clean_score, 0, "Expected 0 slop score on clean page")
+
 if __name__ == "__main__":
     unittest.main()

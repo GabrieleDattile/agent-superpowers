@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cobalt Theme - Hallmark Compliant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>
+    body { font-family: 'JetBrains Mono', monospace; background-color: #090d16; color: #f8fafc; }
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+  </style>
+</head>
+<body class="p-8 max-w-5xl mx-auto">
+  <!-- Minimal technical header -->
+  <header class="flex justify-between items-center border-b border-slate-800 pb-4">
+    <div class="text-sm font-semibold tracking-normal text-cyan-400">COBALT // TELEMETRY</div>
+    <nav class="flex space-x-6 text-xs text-slate-400">
+      <a href="#nodes" class="hover:text-white">Nodes</a>
+      <a href="#metrics" class="hover:text-white">Metrics</a>
+      <a href="#deploy" class="text-cyan-400 underline">Terminal</a>
+    </nav>
+  </header>
+
+  <!-- Purpose-driven hero centered on real data -->
+  <main class="py-16">
+    <div class="max-w-2xl">
+      <h1 class="text-4xl font-bold tracking-tight text-white leading-tight">
+        Real-time edge worker observability and kernel tracing.
+      </h1>
+      <p class="text-slate-400 mt-4 text-sm leading-relaxed">
+        Inspect raw system call latencies, TCP packet loss, and CPU cache invalidations across distributed clusters with sub-millisecond timestamps.
+      </p>
+      <div class="mt-8 flex items-center space-x-4">
+        <button class="bg-blue-600 hover:bg-blue-500 text-white text-xs px-5 py-2.5 rounded-[2px] font-medium transition">
+          Connect Cluster
+        </button>
+        <span class="text-xs text-slate-500">v2.4.1 runtime verified</span>
+      </div>
+    </div>
+
+    <!-- Asymmetric 2x1 bento layout -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-16">
+      <div class="md:col-span-8 p-6 bg-slate-900/60 border border-slate-800 rounded-[2px]">
+        <div class="text-xs text-cyan-400">LIVE TRACE LOGS</div>
+        <div class="mt-3 font-mono text-xs text-slate-300 space-y-1">
+          <div>14:02:11.204 [worker-04] epoll_wait(timeout=10ms) = 1 events</div>
+          <div>14:02:11.206 [worker-04] recvfrom(fd=8, len=1420) = 1420 bytes</div>
+          <div>14:02:11.209 [worker-04] tls_handshake_complete (alpn=h2) [RTT: 1.2ms]</div>
+        </div>
+      </div>
+      <div class="md:col-span-4 p-6 bg-slate-900/60 border border-slate-800 rounded-[2px] flex flex-col justify-between">
+        <div>
+          <div class="text-xs text-slate-400">ACTIVE INSTANCES</div>
+          <div class="text-3xl font-bold text-white mt-2">1,024</div>
+        </div>
+        <div class="text-xs text-emerald-400 font-medium">99.998% healthy state</div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

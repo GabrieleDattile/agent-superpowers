@@ -3,7 +3,7 @@ name: adversarial-duelist
 version: 1.0.0
 description: Adversarial red-team auditor. Generates malicious edge-case payloads, fuzzing vectors, and exploit scripts against proposed code before merge.
 author: Gabriele Dattile (https://github.com/GabrieleDattile)
-compatibility: [Claude Code, Cursor, Windsurf, Gemini CLI, Copilot, MCP]
+compatibility: [Claude Code, Cursor, Codex, Antigravity, Windsurf, Gemini CLI, Copilot, MCP]
 tags: [security, red-team, fuzzing, audit, pr-review]
 ---
 

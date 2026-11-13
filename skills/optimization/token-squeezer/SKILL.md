@@ -3,7 +3,7 @@ name: token-squeezer
 version: 1.0.0
 description: AST-based token and context optimizer. Compresses heavy source code and logs by 50-70% before feeding them into LLM context windows without semantic loss.
 author: Gabriele Dattile (https://github.com/GabrieleDattile)
-compatibility: [Claude Code, Cursor, Windsurf, Gemini CLI, Copilot, MCP]
+compatibility: [Claude Code, Cursor, Codex, Antigravity, Windsurf, Gemini CLI, Copilot, MCP]
 tags: [optimization, token-compression, cost-reduction, llm-context]
 ---
 

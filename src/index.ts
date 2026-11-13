@@ -35,6 +35,8 @@ export const SUPERPOWERS_CATALOG: AgentSkill[] = [
     "compatibility": [
       "Claude Code",
       "Cursor",
+      "Codex",
+      "Antigravity",
       "Windsurf",
       "Gemini CLI",
       "Copilot",
@@ -77,6 +79,8 @@ export const SUPERPOWERS_CATALOG: AgentSkill[] = [
     "compatibility": [
       "Claude Code",
       "Cursor",
+      "Codex",
+      "Antigravity",
       "Windsurf",
       "Gemini CLI",
       "Copilot",
@@ -97,6 +101,8 @@ export const SUPERPOWERS_CATALOG: AgentSkill[] = [
     "compatibility": [
       "Claude Code",
       "Cursor",
+      "Codex",
+      "Antigravity",
       "Windsurf",
       "Gemini CLI",
       "Copilot",
@@ -375,6 +381,8 @@ export const SUPERPOWERS_CATALOG: AgentSkill[] = [
     "compatibility": [
       "Claude Code",
       "Cursor",
+      "Codex",
+      "Antigravity",
       "Windsurf",
       "Gemini CLI",
       "Copilot",
@@ -428,6 +436,31 @@ export const SUPERPOWERS_CATALOG: AgentSkill[] = [
       "knowledge-graph",
       "ast",
       "dependencies"
+    ]
+  },
+  {
+    "name": "hallmark",
+    "version": "1.0.0",
+    "description": "Anti-AI-slop design engine and UI audit toolkit. Overrides generic LLM aesthetic defaults (purple gradients, predictable rounded cards, unopinionated typogra...",
+    "category": "frontend",
+    "compatibility": [
+      "Claude Code",
+      "Cursor",
+      "Codex",
+      "Antigravity",
+      "Windsurf",
+      "Gemini CLI",
+      "Copilot",
+      "MCP"
+    ],
+    "tags": [
+      "frontend",
+      "design",
+      "anti-ai-slop",
+      "themes",
+      "sloplint",
+      "ui-ux",
+      "styling"
     ]
   },
   {
@@ -712,6 +745,8 @@ export const SUPERPOWERS_CATALOG: AgentSkill[] = [
     "compatibility": [
       "Claude Code",
       "Cursor",
+      "Codex",
+      "Antigravity",
       "Windsurf",
       "Gemini CLI",
       "Copilot",

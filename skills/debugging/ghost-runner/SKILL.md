@@ -3,7 +3,7 @@ name: ghost-runner
 version: 1.0.0
 description: Zero-assumption autonomous bug replicator. Prohibits touching production code until a minimal failing test reproduces the bug in isolation.
 author: Gabriele Dattile (https://github.com/GabrieleDattile)
-compatibility: [Claude Code, Cursor, Windsurf, Gemini CLI, Copilot, MCP]
+compatibility: [Claude Code, Cursor, Codex, Antigravity, Windsurf, Gemini CLI, Copilot, MCP]
 tags: [debugging, tdd, automated-testing, reliability]
 ---
 

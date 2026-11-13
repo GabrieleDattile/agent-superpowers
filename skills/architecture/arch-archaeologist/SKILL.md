@@ -3,7 +3,7 @@ name: arch-archaeologist
 version: 1.0.0
 description: Codebase cartographer and architecture archaeologist. Traces inter-module dependencies, identifies dead zombie functions, and emits living Mermaid.js architectural diagrams.
 author: Gabriele Dattile (https://github.com/GabrieleDattile)
-compatibility: [Claude Code, Cursor, Windsurf, Gemini CLI, Copilot, MCP]
+compatibility: [Claude Code, Cursor, Codex, Antigravity, Windsurf, Gemini CLI, Copilot, MCP]
 tags: [architecture, refactoring, dependency-graph, dead-code, mermaid]
 ---
 
