@@ -203,8 +203,14 @@ def cmd_run(args):
     subprocess.run(cmd, cwd=ROOT_DIR)
 
 def cmd_mcp():
-    from mcp.server import main as mcp_main
-    mcp_main()
+    import importlib.util
+    server_path = ROOT_DIR / "mcp" / "server.py"
+    spec = importlib.util.spec_from_file_location("agent_superpowers_mcp", str(server_path))
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Could not load MCP server from {server_path}")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    mod.main()
 
 def cmd_dashboard():
     import webbrowser
@@ -238,6 +244,7 @@ def main():
         cmd_dashboard()
     else:
         log("[red]Unknown command. Available: `list`, `status`, `install`, `run`, `validate`, `serve-mcp`, `dashboard`[/]")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()

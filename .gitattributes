@@ -1,0 +1,7 @@
+# Linguist language detection overrides
+# Ensure GitHub Linguist classifies repository primarily as Python
+skills/multimedia/video-shotcraft/demos/** linguist-vendored
+skills/multimedia/video-shotcraft/demos/** linguist-documentation
+dashboard/** linguist-vendored
+dist/** linguist-vendored
+docs/** linguist-documentation

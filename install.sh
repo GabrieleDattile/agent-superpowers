@@ -125,8 +125,8 @@ fi
 rm -rf "$TEMP_DIR" 2>/dev/null || true
 
 echo -e "\n================================================================="
-echo -e "${BOLD}${GREEN}✔ 11 Agent Superpowers & Python scripts installed successfully!${RESET}"
+echo -e "${BOLD}${GREEN}✔ 36 Agent Superpowers & Python scripts installed successfully!${RESET}"
 echo -e "  Location: $GLOBAL_DEST"
-echo -e "  To launch CLI: python3 \"$GLOBALDEST/cli/superpowers.py\" list"
-echo -e "  To launch Dashboard: python3 \"$GLOBALDEST/cli/superpowers.py\" dashboard"
+echo -e "  To launch CLI: python3 \"$GLOBAL_DEST/cli/superpowers.py\" list"
+echo -e "  To launch Dashboard: python3 \"$GLOBAL_DEST/cli/superpowers.py\" dashboard"
 echo -e "================================================================="

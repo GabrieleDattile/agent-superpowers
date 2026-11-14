@@ -16,6 +16,6 @@ cat << "EOF"
       /___/                              /_/          /_/                          
 EOF
 echo -e "${RESET}"
-echo -e "${GREEN}✔ Agent Superpowers v1.2.0 active.${RESET} [9 autonomous skills loaded]"
+echo -e "${GREEN}✔ Agent Superpowers v1.2.0 active.${RESET} [36 autonomous skills loaded]"
 echo -e "${YELLOW}>> Directives:${RESET} Worktree isolation enforced • TDR Red-Green required • Red-team audit active."
 echo -e "Type ${CYAN}\"Tell me about your superpowers\"${RESET} anytime to inspect your active capabilities.\n"

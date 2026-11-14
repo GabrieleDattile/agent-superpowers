@@ -8,24 +8,13 @@
 
 <br/>
 
-[![GitHub Stars](https://img.shields.io/github/stars/GabrieleDattile/agent-superpowers?style=for-the-badge&color=ffd700&logo=github)](https://github.com/GabrieleDattile/agent-superpowers/stargazers)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Release](https://img.shields.io/github/v/release/GabrieleDattile/agent-superpowers?style=for-the-badge&color=blue&logo=github)](https://github.com/GabrieleDattile/agent-superpowers/releases)
+[![Skills Count](https://img.shields.io/badge/Skills-36%20Production%20Grade-8A2BE2?style=for-the-badge&logo=anthropic)](skills/)
 [![Tests](https://img.shields.io/badge/Tests-Passing%20(100%25)-brightgreen?style=for-the-badge&logo=githubactions)](tests/test_skills.py)
-[![MCP Protocol](https://img.shields.io/badge/MCP-JSON--RPC%202.0-8A2BE2?style=for-the-badge&logo=anthropic)](mcp/server.py)
-[![Author](https://img.shields.io/badge/Author-Gabriele%20Dattile-orange?style=for-the-badge&logo=github)](https://github.com/GabrieleDattile)
+[![MCP Protocol](https://img.shields.io/badge/MCP-JSON--RPC%202.0-orange?style=for-the-badge&logo=anthropic)](mcp/server.py)
+[![License: MIT](https://img.shields.io/badge/License-MIT-3776AB.svg?style=for-the-badge)](LICENSE)
 
 <br/>
-
-<a href="downloads/agent-superpowers-v1.2.0.zip?raw=true">
-  <img src="https://img.shields.io/badge/📦%20Download%20Full%20Suite-ZIP%20Archive-success?style=for-the-badge&logo=github" alt="Download ZIP Archive" />
-</a>
-&nbsp;&nbsp;
-<a href="#-quick-start-1-command">
-  <img src="https://img.shields.io/badge/⚡%20Quick%20Install-1--Command-informational?style=for-the-badge" alt="Quick Install" />
-</a>
-
-<br/><br/>
 
 <p align="center">
   <img src="assets/demo.gif" alt="Agent Superpowers Terminal Demo" width="860" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);"/>
@@ -38,6 +27,42 @@
 > **⭐ Found this useful? Please star the repository to support open-source development!**
 
 </div>
+
+---
+
+## ⚡ Quick Start (Instant 1-Command Setup)
+
+Get started in seconds across your favorite environment:
+
+### 🐧 macOS / Linux (Native Bash)
+```bash
+curl -fsSL https://raw.githubusercontent.com/GabrieleDattile/agent-superpowers/main/install.sh | bash
+```
+
+### 🪟 Windows (Native PowerShell)
+```powershell
+irm https://raw.githubusercontent.com/GabrieleDattile/agent-superpowers/main/install.ps1 | iex
+```
+
+### 🔌 Universal MCP Server (Claude Desktop & Cursor)
+Add to your `claude_desktop_config.json` or `.cursor/mcp.json`:
+```json
+{
+  "mcpServers": {
+    "agent-superpowers": {
+      "command": "python",
+      "args": ["mcp/server.py"],
+      "cwd": "/path/to/agent-superpowers"
+    }
+  }
+}
+```
+
+### 📦 Node.js / NPX
+```bash
+npx github:GabrieleDattile/agent-superpowers list
+```
+*(Or once published to npm: `npx agent-superpowers list`)*
 
 ---
 
@@ -115,7 +140,24 @@ Every coding task executes through an auditable, deterministic state machine:
 
 ---
 
-## 📦 The Autonomous Superpowers Suite (36 Skills)
+## 🌟 Top 5 Flagship Superpowers
+
+Before exploring the complete 36-skill catalog, here are the 5 flagship capabilities that provide immediate reliability improvements to AI coding workflows:
+
+1. **🧪 Ghost Runner ([`skills/debugging/ghost-runner`](skills/debugging/ghost-runner/SKILL.md))**
+   - **The Invariant**: Enforces strict `RED ➔ GREEN` TDD. The agent is strictly locked out of editing production code until it authors a minimal, reproducible test that fails on the current codebase. Eliminates hallucinated bug fixes.
+2. **📦 Git Worktree Sandbox ([`skills/workflow/git-worktree-sandbox`](skills/workflow/git-worktree-sandbox/SKILL.md))**
+   - **The Invariant**: Isolates all multi-file refactoring and exploratory edits in ephemeral git worktrees. Protects your primary working tree from branch corruption and broken intermediary commits.
+3. **🛡️ Adversarial Duelist ([`skills/security/adversarial-duelist`](skills/security/adversarial-duelist/SKILL.md))**
+   - **The Invariant**: Automated pre-commit red-team fuzzer. Attacks business logic functions with null-bytes, zero-divisions, payload boundary limits, and injection vectors before code reaches review.
+4. **⚡ Token Squeezer ([`skills/optimization/token-squeezer`](skills/optimization/token-squeezer/SKILL.md))**
+   - **The Invariant**: Shrinks prompt context by 50–70% via AST signature extraction. Strips internal implementation details while preserving type annotations, classes, and docstrings.
+5. **🎨 Hallmark ([`skills/frontend/hallmark`](skills/frontend/hallmark/SKILL.md))**
+   - **The Invariant**: Anti-AI-slop design engine. Overrides generic LLM aesthetic defaults (purple gradients, predictable rounded cards) with 24 distinct visual material themes and automated sloplint verification.
+
+---
+
+## 📦 Complete Autonomous Superpowers Suite (36 Skills)
 
 ### 🧠 Core Orchestration & Lifecycle
 | Superpower | Category | Primary Capability |
@@ -173,7 +215,7 @@ Every coding task executes through an auditable, deterministic state machine:
 | [**`firecrawl-search`**](skills/scraping/firecrawl-search/SKILL.md) | 🕸️ Scraping | Agent web discovery before extraction |
 | [**`firecrawl-interact`**](skills/scraping/firecrawl-interact/SKILL.md) | 🕸️ Scraping | Post-scrape browser actions, form filling, and pagination |
 | [**`firecrawl-onboard`**](skills/scraping/firecrawl-onboard/SKILL.md) | 🕸️ Scraping | Firecrawl SDK credentials, auth flows, and project onboarding |
-| [**`agent-reach`**](skills/scraping/agent-reach/SKILL.md) | 🕸️ Scraping | Zero-API reading and search across X, Reddit, YouTube transcripts, and GitHub |
+| [**`agent-reach`**](skills/scraping/agent-reach/SKILL.md) | 🕸️ Scraping | Zero-API reading and search across public web sources, video transcripts, developer platforms, and GitHub |
 
 ### 📐 Lean Engineering & Workflow
 | Superpower | Category | Primary Capability |
@@ -184,29 +226,6 @@ Every coding task executes through an auditable, deterministic state machine:
 | [**`ponytail-review`**](skills/workflow/ponytail-review/SKILL.md) | 📐 Workflow | Pull request quality and anti-overengineering reviewer |
 | [**`caveman-commit`**](skills/workflow/caveman-commit/SKILL.md) | 📐 Workflow | Intent-only Conventional Commits generator |
 | [**`video-shotcraft`**](skills/multimedia/video-shotcraft/SKILL.md) | 🎬 Multimedia | Programmatic Remotion cinematic product video synthesis |
-
----
-
-## ⚡ Quick Start (1-Command Install)
-
-### 📦 Direct ZIP Archive
-Prefer manual drag-and-drop into your `.cursor/rules` or skills directory?  
-👉 **[Download agent-superpowers-v1.2.0.zip](downloads/agent-superpowers-v1.2.0.zip?raw=true)**
-
-### 🐧 macOS / Linux (Native Bash)
-```bash
-curl -fsSL https://raw.githubusercontent.com/GabrieleDattile/agent-superpowers/main/install.sh | bash
-```
-
-### 🪟 Windows (Native PowerShell)
-```powershell
-irm https://raw.githubusercontent.com/GabrieleDattile/agent-superpowers/main/install.ps1 | iex
-```
-
-### 📦 Node.js / NPX
-```bash
-npx agent-superpowers list
-```
 
 ---
 

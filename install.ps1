@@ -62,7 +62,11 @@ function Deploy-Skills([string]$DestinationDir) {
     foreach ($sf in $skillFiles) {
         $skillFolder = $sf.Directory
         $targetPath = Join-Path $DestinationDir $skillFolder.Name
-        Copy-Item -Recurse -Force $skillFolder.FullName $targetPath
+        if (Test-Path $targetPath) {
+            Remove-Item -Recurse -Force $targetPath -ErrorAction SilentlyContinue
+        }
+        New-Item -ItemType Directory -Force -Path $targetPath | Out-Null
+        Copy-Item -Recurse -Force (Join-Path $skillFolder.FullName "*") $targetPath
     }
 }
 
@@ -135,7 +139,7 @@ if (Test-Path $TempDir) {
 
 Write-Host ""
 Write-Host "=================================================================" -ForegroundColor Cyan
-Write-Host "SUCCESS: 11 Agent Superpowers and Python scripts installed!" -ForegroundColor Green
+Write-Host "SUCCESS: 36 Agent Superpowers and Python scripts installed!" -ForegroundColor Green
 Write-Host "  Location: $GlobalDest" -ForegroundColor Gray
 Write-Host "  To launch CLI: python `"$GlobalDest\cli\superpowers.py`" list" -ForegroundColor Yellow
 Write-Host "  To launch Dashboard: python `"$GlobalDest\cli\superpowers.py`" dashboard" -ForegroundColor Yellow

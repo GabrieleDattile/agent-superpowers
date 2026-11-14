@@ -25,6 +25,9 @@
     "start": "node bin/superpowers.js list",
     "validate": "node bin/superpowers.js validate"
   },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GabrieleDattile/agent-superpowers.git"

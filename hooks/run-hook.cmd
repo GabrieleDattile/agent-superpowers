@@ -13,7 +13,7 @@ if exist "C:\Program Files\Git\bin\bash.exe" (
 :: Fallback direct Windows Console output
 echo.
 echo =========================================================================
-echo   ⚡ AGENT SUPERPOWERS v1.2.0 ACTIVE  [9 autonomous skills loaded]
+echo   ⚡ AGENT SUPERPOWERS v1.2.0 ACTIVE  [36 autonomous skills loaded]
 echo =========================================================================
 echo   >> Directives: Worktree isolation - TDD Red-Green - Red-Team Audit
 echo   Type "Tell me about your superpowers" to inspect active capabilities.

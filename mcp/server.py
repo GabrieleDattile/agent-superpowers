@@ -14,9 +14,20 @@ if sys.platform == "win32":
 
 import json
 import subprocess
+import importlib.util
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
+
+def _load_module(module_name: str, rel_path: str):
+    """Dynamically load Python module from path containing hyphens or special chars."""
+    file_path = ROOT / rel_path
+    spec = importlib.util.spec_from_file_location(module_name, str(file_path))
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Could not load module specification from {file_path}")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
 
 TOOLS = [
     {
@@ -129,66 +140,72 @@ TOOLS = [
 ]
 
 def handle_call_tool(name: str, args: dict):
-    if name == "ghost_runner":
-        cmd = f'python skills/debugging/ghost-runner/scripts/ghost_runner.py {args["mode"]} --test "{args["test_cmd"]}" --json'
-        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
-        return res.stdout or res.stderr
+    try:
+        if name == "ghost_runner":
+            cmd = f'python skills/debugging/ghost-runner/scripts/ghost_runner.py {args["mode"]} --test "{args["test_cmd"]}" --json'
+            res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
+            return res.stdout or res.stderr
 
-    elif name == "adversarial_duelist":
-        cmd = f'python skills/security/adversarial-duelist/scripts/duelist.py --target "{args["target_file"]}" --func "{args["function_name"]}"'
-        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
-        return res.stdout or res.stderr
+        elif name == "adversarial_duelist":
+            cmd = f'python skills/security/adversarial-duelist/scripts/duelist.py --target "{args["target_file"]}" --func "{args["function_name"]}"'
+            res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
+            return res.stdout or res.stderr
 
-    elif name == "token_squeezer":
-        from skills.optimization.token_squeezer.scripts.squeezer import compress_code, estimate_tokens
-        p = Path(args["file_path"])
-        orig = p.read_text(encoding="utf-8")
-        compressed = compress_code(orig, mode=args.get("mode", "interface"))
-        return f"Original: ~{estimate_tokens(orig)} tokens | Compressed: ~{estimate_tokens(compressed)} tokens\n\n{compressed}"
+        elif name == "token_squeezer":
+            squeezer_mod = _load_module("squeezer", "skills/optimization/token-squeezer/scripts/squeezer.py")
+            p = Path(args["file_path"])
+            orig = p.read_text(encoding="utf-8")
+            compressed = squeezer_mod.compress_code(orig, mode=args.get("mode", "interface"))
+            return f"Original: ~{squeezer_mod.estimate_tokens(orig)} tokens | Compressed: ~{squeezer_mod.estimate_tokens(compressed)} tokens\n\n{compressed}"
 
-    elif name == "api_synthesizer":
-        from skills.reverse_engineering.api_synthesizer.scripts.synthesizer import parse_curl, generate_sdk
-        parsed = parse_curl(args["curl_command"])
-        return generate_sdk(parsed, client_name=args.get("client_name", "ApiClient"))
+        elif name == "api_synthesizer":
+            synth_mod = _load_module("synthesizer", "skills/reverse-engineering/api-synthesizer/scripts/synthesizer.py")
+            parsed = synth_mod.parse_curl(args["curl_command"])
+            return synth_mod.generate_sdk(parsed, client_name=args.get("client_name", "ApiClient"))
 
-    elif name == "arch_archaeologist":
-        cmd = f'python skills/architecture/arch-archaeologist/scripts/archaeologist.py --dir "{args["dir_path"]}"'
-        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
-        return res.stdout or res.stderr
+        elif name == "arch_archaeologist":
+            cmd = f'python skills/architecture/arch-archaeologist/scripts/archaeologist.py --dir "{args["dir_path"]}"'
+            res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
+            return res.stdout or res.stderr
 
-    elif name == "git_worktree_sandbox":
-        action = args["action"]
-        task = args.get("task_name", "")
-        cmd = f'python skills/workflow/git-worktree-sandbox/scripts/worktree.py {action} {task}'.strip()
-        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
-        return res.stdout or res.stderr
+        elif name == "git_worktree_sandbox":
+            action = args["action"]
+            task = args.get("task_name", "")
+            cmd = f'python skills/workflow/git-worktree-sandbox/scripts/worktree.py {action} {task}'.strip()
+            res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
+            return res.stdout or res.stderr
 
-    elif name == "frontend_sentinel":
-        path = args["path"]
-        rep = f'--html-report "{args["html_report"]}"' if args.get("html_report") else ""
-        cmd = f'python skills/frontend/frontend-sentinel/scripts/auditor.py --path "{path}" {rep}'.strip()
-        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
-        return res.stdout or res.stderr
+        elif name == "frontend_sentinel":
+            path = args["path"]
+            rep = f'--html-report "{args["html_report"]}"' if args.get("html_report") else ""
+            cmd = f'python skills/frontend/frontend-sentinel/scripts/auditor.py --path "{path}" {rep}'.strip()
+            res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
+            return res.stdout or res.stderr
 
-    elif name == "blackbox_cloner":
-        action = args["action"]
-        tool_name = args["tool_name"]
-        cat = args.get("category", "graphics")
-        if action == "deconstruct":
-            cmd = f'python skills/reverse-engineering/blackbox-cloner/scripts/cloner.py deconstruct --tool "{tool_name}" --category "{cat}"'
-        else:
-            cmd = f'python skills/reverse-engineering/blackbox-cloner/scripts/cloner.py scaffold --tool "{tool_name}"'
-        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
-        return res.stdout or res.stderr
+        elif name == "blackbox_cloner":
+            action = args["action"]
+            tool_name = args["tool_name"]
+            cat = args.get("category", "graphics")
+            if action == "deconstruct":
+                cmd = f'python skills/reverse-engineering/blackbox-cloner/scripts/cloner.py deconstruct --tool "{tool_name}" --category "{cat}"'
+            else:
+                cmd = f'python skills/reverse-engineering/blackbox-cloner/scripts/cloner.py scaffold --tool "{tool_name}"'
+            res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
+            return res.stdout or res.stderr
 
-    elif name == "hallmark_sloplint":
-        target = args.get("target", ".")
-        fail_under = args.get("fail_under", 25)
-        cmd = f'python skills/frontend/hallmark/scripts/sloplint.py "{target}" --json --fail-under {fail_under}'
-        res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
-        return res.stdout or res.stderr
+        elif name == "hallmark_sloplint":
+            target = args.get("target", ".")
+            fail_under = args.get("fail_under", 25)
+            cmd = f'python skills/frontend/hallmark/scripts/sloplint.py "{target}" --json --fail-under {fail_under}'
+            res = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=ROOT)
+            return res.stdout or res.stderr
 
-    return "Unknown tool"
+        return "Unknown tool"
+    except Exception as e:
+        return {
+            "content": [{"type": "text", "text": f"Error executing tool {name}: {str(e)}"}],
+            "isError": True
+        }
 
 def main():
     """Stdio JSON-RPC loop for Model Context Protocol."""
@@ -232,13 +249,24 @@ def main():
             params = msg.get("params", {})
             name = params.get("name")
             arguments = params.get("arguments", {})
-            content = handle_call_tool(name, arguments)
+            try:
+                res = handle_call_tool(name, arguments)
+                if isinstance(res, dict) and "content" in res:
+                    result = res
+                else:
+                    result = {
+                        "content": [{"type": "text", "text": str(res)}],
+                        "isError": False
+                    }
+            except Exception as e:
+                result = {
+                    "content": [{"type": "text", "text": f"Error executing tool {name}: {str(e)}"}],
+                    "isError": True
+                }
             resp = {
                 "jsonrpc": "2.0",
                 "id": req_id,
-                "result": {
-                    "content": [{"type": "text", "text": str(content)}]
-                }
+                "result": result
             }
             sys.stdout.write(json.dumps(resp) + "\n")
             sys.stdout.flush()
