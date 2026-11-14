@@ -8,23 +8,28 @@
 
 <br/>
 
-[![Release](https://img.shields.io/github/v/release/GabrieleDattile/agent-superpowers?style=for-the-badge&color=blue&logo=github)](https://github.com/GabrieleDattile/agent-superpowers/releases)
-[![Skills Count](https://img.shields.io/badge/Skills-36%20Production%20Grade-8A2BE2?style=for-the-badge&logo=anthropic)](skills/)
-[![Tests](https://img.shields.io/badge/Tests-Passing%20(100%25)-brightgreen?style=for-the-badge&logo=githubactions)](tests/test_skills.py)
-[![MCP Protocol](https://img.shields.io/badge/MCP-JSON--RPC%202.0-orange?style=for-the-badge&logo=anthropic)](mcp/server.py)
-[![License: MIT](https://img.shields.io/badge/License-MIT-3776AB.svg?style=for-the-badge)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/GabrieleDattile/agent-superpowers?style=for-the-badge&color=2563EB&logo=github)](https://github.com/GabrieleDattile/agent-superpowers/releases)
+[![Skills Count](https://img.shields.io/badge/Skills-36%20Production%20Grade-8B5CF6?style=for-the-badge&logo=anthropic)](skills/)
+[![Tests](https://img.shields.io/badge/Tests-Passing%20(100%25)-10B981?style=for-the-badge&logo=githubactions)](tests/test_skills.py)
+[![MCP Protocol](https://img.shields.io/badge/MCP-JSON--RPC%202.0-F59E0B?style=for-the-badge&logo=anthropic)](mcp/server.py)
+[![License: MIT](https://img.shields.io/badge/License-MIT-3B82F6.svg?style=for-the-badge)](LICENSE)
 
 <br/>
 
+<!-- Hero Terminal Showcase -->
 <p align="center">
-  <img src="assets/demo.gif" alt="Agent Superpowers Terminal Demo" width="860" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);"/>
+  <img src="assets/demo.gif" alt="Agent Superpowers Live Terminal Demo" width="920" style="max-width: 100%; border-radius: 12px; border: 1px solid #30363d; box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7);"/>
 </p>
 
-<sub><em>⚡ Autonomous 7-stage lifecycle execution: Ghost Runner isolating failing test (RED), Git Worktree sandbox isolation, and Adversarial red-team fuzzing.</em></sub>
+<!-- Live Execution Breakdown Bar -->
+| 🛑 1. Deterministic Repro | 📦 2. Ephemeral Sandbox | 🟢 3. Minimal Surgical Patch | ⚔️ 4. Red-Team Fuzzing | 🚀 5. Production Gate |
+| :---: | :---: | :---: | :---: | :---: |
+| **`RED Test Required`** | **`Worktree Isolation`** | **`GREEN Verification`** | **`11 Attack Payloads`** | **`Verified Merge`** |
+| Zero code edits allowed until bug replicates | Primary branch protected from corrupting edits | Minimal patch turns failing repro green | Null-bytes, SQLi & overflow injection | 100% regression suite verified |
 
 <br/>
 
-> **⭐ Found this useful? Please star the repository to support open-source development!**
+> **⭐ Found this useful? Star this repository to empower the open-source autonomous engineering movement!**
 
 </div>
 
@@ -32,19 +37,19 @@
 
 ## ⚡ Quick Start (Instant 1-Command Setup)
 
-Get started in seconds across your favorite environment:
-
-### 🐧 macOS / Linux (Native Bash)
-```bash
-curl -fsSL https://raw.githubusercontent.com/GabrieleDattile/agent-superpowers/main/install.sh | bash
-```
+Install the complete 36-skill suite and autonomous Python engines in seconds:
 
 ### 🪟 Windows (Native PowerShell)
 ```powershell
 irm https://raw.githubusercontent.com/GabrieleDattile/agent-superpowers/main/install.ps1 | iex
 ```
 
-### 🔌 Universal MCP Server (Claude Desktop & Cursor)
+### 🐧 macOS / Linux (Native Bash)
+```bash
+curl -fsSL https://raw.githubusercontent.com/GabrieleDattile/agent-superpowers/main/install.sh | bash
+```
+
+### 🔌 Universal MCP Server (Claude Desktop, Cursor, Zed, Antigravity)
 Add to your `claude_desktop_config.json` or `.cursor/mcp.json`:
 ```json
 {
@@ -62,19 +67,19 @@ Add to your `claude_desktop_config.json` or `.cursor/mcp.json`:
 ```bash
 npx github:GabrieleDattile/agent-superpowers list
 ```
-*(Or once published to npm: `npx agent-superpowers list`)*
 
 ---
 
-## ⚡ The Difference: Chaotic AI vs. Agent Superpowers
+## ⚡ The Difference: Default AI vs. Agent Superpowers
 
-Without guardrails, even the best LLMs behave like chaotic junior developers: they jump straight into editing files, hallucinate non-existent APIs, break existing tests, and push unverified changes.
+Without guardrails, even state-of-the-art LLMs behave like chaotic junior developers: they jump straight into editing files, hallucinate non-existent APIs, break existing tests, and push unverified changes.
 
 | The Chaos of Default AI ❌ | With Agent Superpowers Protocol 🟢 |
 | :--- | :--- |
 | **Hallucinates bug fixes**: Edits production code based on guesswork | **Ghost Runner**: Strictly forbidden from editing source code until a minimal failing test reproduces the defect (`RED ➔ GREEN`) |
 | **Corrupts your workspace**: Makes sweeping multi-file edits directly on your active working branch | **Git Worktree Sandbox**: Runs all experiments in ephemeral, isolated git worktrees; primary branch remains 100% clean |
 | **Generates fragile edge-cases**: Writes happy-path code vulnerable to boundary crashes and exploits | **Adversarial Duelist**: Automated pre-commit red-team fuzzer injects null-bytes, SQLi payloads, and zero-divisions |
+| **Produces generic AI slop**: Default purple gradients, formulaic 3-card grids, Inter font, unanchored blur blobs | **Hallmark**: Anti-AI-slop design engine with 24 distinct material themes and automated `sloplint` auditor |
 | **Blows token budgets**: Dumps full source files into context, hitting rate limits and burning money | **Token Squeezer**: Shrinks prompt context by 50–70% using AST extraction without losing architectural semantics |
 | **Breaks frontend layouts**: Generates UI code that looks fine on desktop but breaks on mobile viewports | **Frontend Sentinel**: WCAG 2.1 accessibility and responsive breakpoint auditor with visual HTML reports |
 | **Session amnesia**: Forgets past architectural decisions and conventions every time the CLI restarts | **Memory Nexus**: Append-only local decision ledger (`.superpowers/decisions.jsonl`) persists context cross-session |
@@ -82,35 +87,135 @@ Without guardrails, even the best LLMs behave like chaotic junior developers: th
 
 ---
 
-## 💬 See It in Action (Live Agent Conversation)
+## 🎬 Live Deep-Dives: See How the Skills Work in Action
 
-Here is what happens when you prompt an agent equipped with **Agent Superpowers**:
+### 1. 🔍 Ghost Runner: Strict TDD Bug Reproduction
+> **Rule**: An agent is **forbidden from modifying production files** until it writes an isolated test that replicates the bug and fails (`RED`).
+
+```bash
+# Run Ghost Runner reproduction gate
+python cli/superpowers.py run ghost-runner reproduce --test "python -m unittest tests/test_reproduce.py"
+```
 
 ```text
-User: "We have an intermittent crash in our payment checkout when users apply discount vouchers. Fix it."
+=== 👻 Ghost Runner: TDD Reproduction Protocol ===
+Test Command: python -m unittest tests/test_reproduce.py
+Expected Outcome: FAILURE (RED)
 
-AI (with Agent Superpowers):
-⚡ [Stage 1: Brainstormer] Analyzing discount coupon code paths and error logs.
-   ➔ Identified potential edge case: zero-value vouchers causing division-by-zero.
+Running test under isolated subshell...
+----------------------------------------------------------------------
+ZeroDivisionError: division by zero in calculate_discount()
+Ran 1 test in 0.002s
+FAILED (failures=1)
 
-🔍 [Stage 2: Ghost Runner] Enforcing TDD Verification (Prohibiting code edits):
-   ➔ Synthesizing reproduction test: `tests/repro_discount_crash.py`
-   ➔ Executing test: FAILED (Exit Code 1, ZeroDivisionError).
-   ✔ RED stage confirmed: Bug successfully reproduced under controlled isolation.
+✔ SUCCESS: Defect reproduced deterministically (Exit Code: 1).
+  Agent is now AUTHORIZED to apply minimal surgical patch in worktree.
+```
 
-📦 [Stage 3: Git Worktree Sandbox] Instantiating isolated environment:
-   ➔ Created worktree branch: `sandbox/fix-discount-crash` (primary tree protected).
+---
 
-🛠️ [Stage 4: Surgical Patch] Applying minimal fix in `services/checkout.py`:
-   ➔ Added decimal voucher floor check and zero-guard.
-   ➔ Re-running reproduction test: PASSED (GREEN).
-   ➔ Re-running full regression suite: 42 passed, 0 failed.
+### 2. 🛡️ Adversarial Duelist: Pre-Commit Red-Team Fuzzing
+> **Rule**: Before any commit or PR is approved, the agent attacks the proposed function with 11 boundary payloads to catch unhandled crashes.
 
-🛡️ [Stage 5: Adversarial Duelist] Launching pre-commit security fuzzer:
-   ➔ Fuzzing `calculate_discount()` with 11 boundary payloads (Negative, NaN, Null-Byte, Overflows)...
-   ✔ All 11 attack vectors handled safely.
+```bash
+# Fuzz an authentication or payment function
+python cli/superpowers.py run duelist --target services/auth.py --func authenticate_user
+```
 
-🚀 [Stage 6: Merge Gate] Worktree verified. Clean patch ready for main branch merge.
+```text
+=== ⚔️ Adversarial Duelist: Red-Team Fuzzer ===
+Target: services/auth.py :: authenticate_user()
+Testing 11 adversarial injection vectors...
+
+  ✔ [01/11] Null-Byte Poisoning ('admin\x00')      ➔ Handled (ValueError)
+  ✔ [02/11] SQL Injection (' OR '1'='1' --)       ➔ Handled (Safe Query)
+  ✔ [03/11] Memory Bounding ('A' * 100,000)        ➔ Handled (LengthGuard)
+  ✔ [04/11] Zero Divisor (divisor=0)               ➔ Handled (ZeroGuard)
+  ✔ [05/11] Float NaN / Infinity (val=float('nan')) ➔ Handled (TypeError)
+  ✔ [06/11] Boundary Integer (2^63 - 1)            ➔ Handled (OverflowSafe)
+  ...
+✔ 11/11 Attack Vectors Defended. Pre-commit authorization granted.
+```
+
+---
+
+### 3. 🎨 Hallmark & Sloplint: The Anti-AI-Slop Design Engine
+> **Rule**: Prevent LLMs from defaulting to generic AI tropes (purple gradients, predictable 3-card grids, floating blur balls).
+
+```bash
+# Audit a landing page or UI component for machine-made design tells
+python cli/superpowers.py run sloplint src/components/Hero.tsx
+```
+
+```text
+=================================================================
+🎨 Hallmark Sloplint: Autonomous Anti-AI-Slop Auditor
+=================================================================
+Scanned: src/components/Hero.tsx
+
+Found 3 aesthetic tells:
+  🔴 [SLOP-001] Generic AI Purple Gradient (Line 14)
+     Match: 'bg-gradient-to-r from-purple-500 to-indigo-600'
+     Fix:   Adopt a deliberate palette from Hallmark themes (e.g. Cobalt, Atelier, Furrow).
+
+  🔴 [SLOP-002] Unanchored Floating Blur Orb (Line 8)
+     Match: 'rounded-full blur-3xl bg-purple-500/30'
+     Fix:   Replace decorative blobs with real photography, technical diagrams, or clean space.
+
+  🟡 [SLOP-003] AI Buzzword Copy (Line 18)
+     Match: 'Supercharge your productivity with AI'
+     Fix:   Write concrete, specific value propositions with real numbers and features.
+
+Overall Slop Index: 60 / 100 [FAIL (HIGH SLOP CONTENT)]
+Guidance: Apply curated theme tokens from references/themes.json
+```
+
+---
+
+### 4. ⚡ Token Squeezer: AST-Based Prompt Compressor
+> **Rule**: Shrink massive codebases by **50–70%** before injecting them into prompt context windows, preserving signatures and docstrings.
+
+```bash
+# Compress a 500-line service down to its architectural essence
+python cli/superpowers.py run squeezer services/payment.py --mode interface
+```
+
+```python
+# === ORIGINAL (1,420 Tokens) ===              # === SQUEEZED (-68% Tokens) ===
+class PaymentGateway:                           class PaymentGateway:
+    """Handles Stripe and PayPal charges."""        """Handles Stripe and PayPal charges."""
+    def __init__(self, key: str):                   def __init__(self, key: str): ...
+        self.key = key                              def charge(self, amount: float,
+        self._init_vault()                                     currency: str = "USD") -> bool: ...
+        self._connect_webhook()                     def refund(self, txn_id: str) -> bool: ...
+    def charge(self, amount: float, ...) -> bool:
+        # [80 lines of internal logic]
+        ...
+```
+
+---
+
+### 5. 🗺️ Arch Archaeologist & Graphify: Codebase Cartography
+> **Rule**: Map live module dependencies, trace call trees, and detect dead zombie functions across the entire repository.
+
+```text
+flowchart TD
+    subgraph Core ["📦 Core Services"]
+        AUTH["auth.py<br/><i>authenticate_user()</i>"]
+        GATEWAY["gateway.py<br/><i>process_payment()</i>"]
+    end
+    subgraph Storage ["💾 Storage Layer"]
+        DB["database.py<br/><i>query_records()</i>"]
+        CACHE["cache.py<br/><i>get_session()</i>"]
+    end
+    subgraph DeadCode ["⚠️ Dead Zombie Code (Isolated)"]
+        LEGACY["legacy_v1_api.py<br/><i>[0 references detected]</i>"]
+    end
+
+    AUTH --> DB
+    AUTH --> CACHE
+    GATEWAY --> DB
+    style LEGACY stroke:#ef4444,stroke-dasharray: 5 5,color:#ef4444
 ```
 
 ---
@@ -140,47 +245,44 @@ Every coding task executes through an auditable, deterministic state machine:
 
 ---
 
-## 🌟 Top 5 Flagship Superpowers
-
-Before exploring the complete 36-skill catalog, here are the 5 flagship capabilities that provide immediate reliability improvements to AI coding workflows:
-
-1. **🧪 Ghost Runner ([`skills/debugging/ghost-runner`](skills/debugging/ghost-runner/SKILL.md))**
-   - **The Invariant**: Enforces strict `RED ➔ GREEN` TDD. The agent is strictly locked out of editing production code until it authors a minimal, reproducible test that fails on the current codebase. Eliminates hallucinated bug fixes.
-2. **📦 Git Worktree Sandbox ([`skills/workflow/git-worktree-sandbox`](skills/workflow/git-worktree-sandbox/SKILL.md))**
-   - **The Invariant**: Isolates all multi-file refactoring and exploratory edits in ephemeral git worktrees. Protects your primary working tree from branch corruption and broken intermediary commits.
-3. **🛡️ Adversarial Duelist ([`skills/security/adversarial-duelist`](skills/security/adversarial-duelist/SKILL.md))**
-   - **The Invariant**: Automated pre-commit red-team fuzzer. Attacks business logic functions with null-bytes, zero-divisions, payload boundary limits, and injection vectors before code reaches review.
-4. **⚡ Token Squeezer ([`skills/optimization/token-squeezer`](skills/optimization/token-squeezer/SKILL.md))**
-   - **The Invariant**: Shrinks prompt context by 50–70% via AST signature extraction. Strips internal implementation details while preserving type annotations, classes, and docstrings.
-5. **🎨 Hallmark ([`skills/frontend/hallmark`](skills/frontend/hallmark/SKILL.md))**
-   - **The Invariant**: Anti-AI-slop design engine. Overrides generic LLM aesthetic defaults (purple gradients, predictable rounded cards) with 24 distinct visual material themes and automated sloplint verification.
-
----
-
 ## 📦 Complete Autonomous Superpowers Suite (36 Skills)
 
-### 🧠 Core Orchestration & Lifecycle
+<details open>
+<summary><b>🧠 Core Orchestration & Lifecycle (3 Skills)</b></summary>
+
 | Superpower | Category | Primary Capability |
 | :--- | :--- | :--- |
 | [**`using-superpowers`**](skills/orchestration/using-superpowers/SKILL.md) | 🧠 Orchestration | Master bootstrap meta-skill; enforces the 7-stage engineering lifecycle |
 | [**`feature-brainstormer`**](skills/workflow/feature-brainstormer/SKILL.md) | 💡 Workflow | Socratic requirements refiner; asks 3 clarifying questions before writing code |
 | [**`git-worktree-sandbox`**](skills/workflow/git-worktree-sandbox/SKILL.md) | 📦 Workflow | Ephemeral git worktree isolation; zero risk of corrupting your active workspace |
 
-### 🔍 Debugging & Verification
+</details>
+
+<details open>
+<summary><b>🔍 Debugging & Verification (3 Skills)</b></summary>
+
 | Superpower | Category | Primary Capability |
 | :--- | :--- | :--- |
 | [**`ghost-runner`**](skills/debugging/ghost-runner/SKILL.md) | 🔍 Debugging | Zero-assumption bug reproducer; enforces strict RED ➔ GREEN TDD cycle |
 | [**`testsprite-verify`**](skills/testing/testsprite-verify/SKILL.md) | 🧪 Testing | Closed-loop automated regression and user flow verification |
 | [**`testsprite-ci`**](skills/testing/testsprite-ci/SKILL.md) | 🧪 Testing | CI pipeline test automation and test suite orchestration |
 
-### 🛡️ Security & Reverse Engineering
+</details>
+
+<details open>
+<summary><b>🛡️ Security & Reverse Engineering (3 Skills)</b></summary>
+
 | Superpower | Category | Primary Capability |
 | :--- | :--- | :--- |
 | [**`adversarial-duelist`**](skills/security/adversarial-duelist/SKILL.md) | 🛡️ Security | Pre-commit red-team fuzzer; injects malicious edge-case payloads |
 | [**`blackbox-cloner`**](skills/reverse-engineering/blackbox-cloner/SKILL.md) | 🕵️ Reverse Engineering | Clean-room tool replicator; deconstructs proprietary software into open-source scaffolds |
 | [**`api-synthesizer`**](skills/reverse-engineering/api-synthesizer/SKILL.md) | 🔌 Integration | Network-to-SDK generator; converts cURL traffic into typed Python client SDKs |
 
-### 🗺️ Architecture & Memory
+</details>
+
+<details open>
+<summary><b>🗺️ Architecture & Memory (5 Skills)</b></summary>
+
 | Superpower | Category | Primary Capability |
 | :--- | :--- | :--- |
 | [**`arch-archaeologist`**](skills/architecture/arch-archaeologist/SKILL.md) | 🗺️ Architecture | Codebase cartographer; traces dependency graphs and isolates dead zombie functions |
@@ -189,7 +291,11 @@ Before exploring the complete 36-skill catalog, here are the 5 flagship capabili
 | [**`memory-nexus`**](skills/memory/memory-nexus/SKILL.md) | 💾 Memory | Cross-session architecture ledger; eliminates agent amnesia between restarts |
 | [**`hindsight-memory`**](skills/memory/hindsight-memory/SKILL.md) | 💾 Memory | Adaptive long-term project memory and automatic session synthesis |
 
-### ⚡ Optimization & Token Efficiency
+</details>
+
+<details open>
+<summary><b>⚡ Optimization & Token Efficiency (4 Skills)</b></summary>
+
 | Superpower | Category | Primary Capability |
 | :--- | :--- | :--- |
 | [**`token-squeezer`**](skills/optimization/token-squeezer/SKILL.md) | ⚡ Optimization | AST-based context compressor; cuts LLM prompt token costs by 50–70% |
@@ -197,16 +303,24 @@ Before exploring the complete 36-skill catalog, here are the 5 flagship capabili
 | [**`caveman-compress`**](skills/optimization/caveman-compress/SKILL.md) | ⚡ Optimization | Extreme token compression for memory files and long context |
 | [**`prompt-optimizer`**](skills/optimization/prompt-optimizer/SKILL.md) | ⚡ Optimization | Systematic prompt evaluation, few-shot generation, and constraint tuning |
 
-### 🎨 Frontend & UI/UX
+</details>
+
+<details open>
+<summary><b>🎨 Frontend, Design & Anti-Slop (5 Skills)</b></summary>
+
 | Superpower | Category | Primary Capability |
 | :--- | :--- | :--- |
-| [**`frontend-sentinel`**](skills/frontend/frontend-sentinel/SKILL.md) | 🎨 Frontend | Production UI/UX auditor; checks a11y, mobile viewports & generates visual HTML reports |
 | [**`hallmark`**](skills/frontend/hallmark/SKILL.md) | 🎨 Frontend | Anti-AI-slop design engine; overrides generic purple gradients with 24 material themes & sloplint |
+| [**`frontend-sentinel`**](skills/frontend/frontend-sentinel/SKILL.md) | 🎨 Frontend | Production UI/UX auditor; checks a11y, mobile viewports & generates visual HTML reports |
 | [**`figma-designer`**](skills/frontend/figma-designer/SKILL.md) | 🎨 Frontend | Token-driven Figma design specs, components, auto-layout, and design systems |
 | [**`landing-page-design`**](skills/frontend/landing-page-design/SKILL.md) | 🎨 Frontend | High-converting landing page blueprints, copywriting, and visual structure |
 | [**`review-frontend-production`**](skills/frontend/review-frontend-production/SKILL.md) | 🎨 Frontend | Production frontend inspection, compliance checks, and handover verification |
 
-### 🕸️ Web Data, Scraping & Social
+</details>
+
+<details open>
+<summary><b>🕸️ Web Data, Scraping & Social (7 Skills)</b></summary>
+
 | Superpower | Category | Primary Capability |
 | :--- | :--- | :--- |
 | [**`scrapling`**](skills/scraping/scrapling/SKILL.md) | 🕸️ Scraping | Adaptive web scraping framework with anti-bot bypass and stealth browser sessions |
@@ -215,9 +329,13 @@ Before exploring the complete 36-skill catalog, here are the 5 flagship capabili
 | [**`firecrawl-search`**](skills/scraping/firecrawl-search/SKILL.md) | 🕸️ Scraping | Agent web discovery before extraction |
 | [**`firecrawl-interact`**](skills/scraping/firecrawl-interact/SKILL.md) | 🕸️ Scraping | Post-scrape browser actions, form filling, and pagination |
 | [**`firecrawl-onboard`**](skills/scraping/firecrawl-onboard/SKILL.md) | 🕸️ Scraping | Firecrawl SDK credentials, auth flows, and project onboarding |
-| [**`agent-reach`**](skills/scraping/agent-reach/SKILL.md) | 🕸️ Scraping | Zero-API reading and search across public web sources, video transcripts, developer platforms, and GitHub |
+| [**`agent-reach`**](skills/scraping/agent-reach/SKILL.md) | 🕸️ Scraping | Zero-API reading and search across public web sources, video transcripts, and developer platforms |
 
-### 📐 Lean Engineering & Workflow
+</details>
+
+<details open>
+<summary><b>📐 Lean Engineering & Multimedia (6 Skills)</b></summary>
+
 | Superpower | Category | Primary Capability |
 | :--- | :--- | :--- |
 | [**`ponytail`**](skills/workflow/ponytail/SKILL.md) | 📐 Workflow | YAGNI principal engineer mindset; smallest change that fully solves the task |
@@ -227,11 +345,13 @@ Before exploring the complete 36-skill catalog, here are the 5 flagship capabili
 | [**`caveman-commit`**](skills/workflow/caveman-commit/SKILL.md) | 📐 Workflow | Intent-only Conventional Commits generator |
 | [**`video-shotcraft`**](skills/multimedia/video-shotcraft/SKILL.md) | 🎬 Multimedia | Programmatic Remotion cinematic product video synthesis |
 
+</details>
+
 ---
 
 ## 🛠️ Universal Platform Support
 
-Agent Superpowers is designed to be completely runtime-agnostic. Drop it into your existing workflow with zero configuration:
+Agent Superpowers is completely runtime-agnostic. Drop it into your existing workflow with zero configuration:
 
 * **🟣 Claude Code**: Native plugin manifest in [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) with startup lifecycle hooks in [`hooks/`](hooks/).
 * **🔵 Cursor**: Modern `.mdc` Project Rules in [`.cursor/rules/agent-superpowers.mdc`](.cursor/rules/agent-superpowers.mdc).
@@ -259,6 +379,9 @@ Agent Superpowers includes a built-in verification suite:
 ```bash
 # List all 36 registered superpowers
 python cli/superpowers.py list
+
+# Run system health check across all engines
+python cli/superpowers.py status
 
 # Validate specification compliance
 python cli/superpowers.py validate
