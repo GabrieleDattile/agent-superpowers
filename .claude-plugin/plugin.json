@@ -3,11 +3,10 @@
   "description": "Production-grade, battle-tested skills for autonomous AI software engineers: TDD reproduction, adversarial red-team fuzzing, token compression, architecture cartography, and worktree isolation.",
   "version": "1.2.0",
   "author": {
-    "name": "Gabriele Dattile",
-    "email": "dattilegabriele@gmail.com",
-    "url": "https://github.com/GabrieleDattile"
+    "name": "Gabriele D'Attile",
+    "url": "https://gabrieledattile.github.io/"
   },
-  "homepage": "https://github.com/GabrieleDattile/agent-superpowers",
+  "homepage": "https://gabrieledattile.github.io/agent-superpowers.html",
   "repository": "https://github.com/GabrieleDattile/agent-superpowers",
   "license": "MIT",
   "keywords": [
