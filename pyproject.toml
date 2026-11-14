@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=77.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,10 +7,25 @@ name = "agent-superpowers"
 version = "1.2.0"
 description = "Production-grade, battle-tested skills for autonomous AI software engineers."
 readme = "README.md"
-authors = [{ name = "Gabriele Dattile", email = "dattilegabriele@gmail.com" }]
-license = { text = "MIT" }
+authors = [{ name = "Gabriele D'Attile" }]
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.10"
 keywords = ["ai-agents", "agent-skills", "claude-code", "cursor", "mcp", "debugging", "security"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Code Generators",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Security",
+]
 dependencies = [
     "pyyaml>=6.0",
     "pydantic>=2.0",
@@ -25,9 +40,19 @@ dev = [
 ]
 
 [project.scripts]
-superpowers = "cli.superpowers:main"
+superpowers = "agent_superpowers.cli:main"
+agent-superpowers = "agent_superpowers.cli:main"
+agent-superpowers-mcp = "agent_superpowers.mcp_server:main"
 
 [project.urls]
-Homepage = "https://github.com/GabrieleDattile/agent-superpowers"
-Repository = "https://github.com/GabrieleDattile/agent-superpowers.git"
+Homepage = "https://gabrieledattile.github.io/agent-superpowers.html"
+Documentation = "https://gabrieledattile.github.io/agent-superpowers.html"
+Repository = "https://github.com/GabrieleDattile/agent-superpowers"
 Issues = "https://github.com/GabrieleDattile/agent-superpowers/issues"
+Author = "https://gabrieledattile.github.io/"
+
+[tool.setuptools.packages.find]
+include = ["agent_superpowers*"]
+
+[tool.setuptools]
+include-package-data = true

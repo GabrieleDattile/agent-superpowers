@@ -9,16 +9,16 @@
 <br/>
 
 [![Release](https://img.shields.io/github/v/release/GabrieleDattile/agent-superpowers?style=for-the-badge&color=2563EB&logo=github)](https://github.com/GabrieleDattile/agent-superpowers/releases)
-[![Skills Count](https://img.shields.io/badge/Skills-36%20Production%20Grade-8B5CF6?style=for-the-badge&logo=anthropic)](skills/)
-[![Tests](https://img.shields.io/badge/Tests-Passing%20(100%25)-10B981?style=for-the-badge&logo=githubactions)](tests/test_skills.py)
-[![MCP Protocol](https://img.shields.io/badge/MCP-JSON--RPC%202.0-F59E0B?style=for-the-badge&logo=anthropic)](mcp/server.py)
-[![License: MIT](https://img.shields.io/badge/License-MIT-3B82F6.svg?style=for-the-badge)](LICENSE)
+[![Skills Count](https://img.shields.io/badge/Skills-36%20Production%20Grade-8B5CF6?style=for-the-badge&logo=anthropic)](https://github.com/GabrieleDattile/agent-superpowers/tree/main/skills)
+[![Tests](https://img.shields.io/badge/Tests-Passing%20(100%25)-10B981?style=for-the-badge&logo=githubactions)](https://github.com/GabrieleDattile/agent-superpowers/blob/main/tests/test_skills.py)
+[![MCP Protocol](https://img.shields.io/badge/MCP-JSON--RPC%202.0-F59E0B?style=for-the-badge&logo=anthropic)](https://github.com/GabrieleDattile/agent-superpowers/blob/main/mcp/server.py)
+[![License: MIT](https://img.shields.io/badge/License-MIT-3B82F6.svg?style=for-the-badge)](https://github.com/GabrieleDattile/agent-superpowers/blob/main/LICENSE)
 
 <br/>
 
 <!-- Hero Terminal Showcase -->
 <p align="center">
-  <img src="assets/demo.gif" alt="Agent Superpowers Live Terminal Demo" width="920" style="max-width: 100%; border-radius: 12px; border: 1px solid #30363d; box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7);"/>
+  <img src="https://raw.githubusercontent.com/GabrieleDattile/agent-superpowers/main/assets/demo.gif" alt="Agent Superpowers Live Terminal Demo" width="920" style="max-width: 100%; border-radius: 12px; border: 1px solid #30363d; box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7);"/>
 </p>
 
 <!-- Live Execution Breakdown Bar -->
@@ -403,7 +403,9 @@ Contributions are warmly welcomed!
 
 ## 👤 Author
 
-**Gabriele Dattile**  
+**Gabriele D'Attile**  
+* Portfolio & Technical Dossier: [https://gabrieledattile.github.io/agent-superpowers.html](https://gabrieledattile.github.io/agent-superpowers.html)  
+* Website: [https://gabrieledattile.github.io](https://gabrieledattile.github.io)  
 * GitHub: [@GabrieleDattile](https://github.com/GabrieleDattile)  
 * Repository: [https://github.com/GabrieleDattile/agent-superpowers](https://github.com/GabrieleDattile/agent-superpowers)
 
@@ -411,4 +413,4 @@ Contributions are warmly welcomed!
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://github.com/GabrieleDattile/agent-superpowers/blob/main/LICENSE).

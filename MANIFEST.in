@@ -1,0 +1,12 @@
+include README.md LICENSE pyproject.toml setup.py install.sh install.ps1
+recursive-include agent_superpowers *.py
+recursive-include cli *.py
+recursive-include mcp *.py *.json
+recursive-include dashboard *
+recursive-include skills *
+prune skills/multimedia/video-shotcraft/assets
+prune skills/multimedia/video-shotcraft/demos
+prune skills/multimedia/video-shotcraft/gallery
+prune skills/multimedia/video-shotcraft/template
+prune skills/multimedia/video-shotcraft/workbench
+global-exclude __pycache__ *.py[cod] .DS_Store

@@ -3,6 +3,7 @@
   "version": "1.2.0",
   "type": "module",
   "description": "Universal skills framework for autonomous AI software engineers (Claude Code, Cursor, Antigravity, Codex, MCP).",
+  "homepage": "https://gabrieledattile.github.io/agent-superpowers.html",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
@@ -12,7 +13,17 @@
   "files": [
     "bin",
     "cli",
+    "dashboard",
     "skills",
+    "!skills/multimedia/video-shotcraft/assets/**",
+    "!skills/multimedia/video-shotcraft/demos/**",
+    "!skills/multimedia/video-shotcraft/gallery/**",
+    "!skills/multimedia/video-shotcraft/template/**",
+    "!skills/multimedia/video-shotcraft/workbench/**",
+    "!**/__pycache__/**",
+    "!**/.pytest_cache/**",
+    "!**/*.pyc",
+    "!**/*.pyo",
     "mcp",
     "dist",
     "README.md",
@@ -22,7 +33,9 @@
   ],
   "scripts": {
     "build": "tsc",
+    "prepublishOnly": "npm run build",
     "start": "node bin/superpowers.js list",
+    "test": "npm run validate",
     "validate": "node bin/superpowers.js validate"
   },
   "devDependencies": {
@@ -31,6 +44,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GabrieleDattile/agent-superpowers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GabrieleDattile/agent-superpowers/issues"
   },
   "keywords": [
     "ai-agents",
@@ -45,6 +61,9 @@
     "fuzzing",
     "security"
   ],
-  "author": "Gabriele Dattile <137740496+GabrieleDattile@users.noreply.github.com> (https://github.com/GabrieleDattile)",
+  "author": {
+    "name": "Gabriele D'Attile",
+    "url": "https://gabrieledattile.github.io/"
+  },
   "license": "MIT"
 }
