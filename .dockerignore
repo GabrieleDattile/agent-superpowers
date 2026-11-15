@@ -1,0 +1,17 @@
+.git
+node_modules
+__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+.worktrees
+.superpowers
+build
+dist
+dist-py
+*.egg-info
+skills/multimedia/video-shotcraft/assets
+skills/multimedia/video-shotcraft/demos
+skills/multimedia/video-shotcraft/gallery
+skills/multimedia/video-shotcraft/template
+skills/multimedia/video-shotcraft/workbench

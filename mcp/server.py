@@ -207,8 +207,21 @@ def handle_call_tool(name: str, args: dict):
             "isError": True
         }
 
+def _write_response(payload: dict) -> None:
+    """Write a single JSON-RPC 2.0 message to stdout and flush."""
+    sys.stdout.write(json.dumps(payload) + "\n")
+    sys.stdout.flush()
+
+
 def main():
     """Stdio JSON-RPC loop for Model Context Protocol."""
+    static_results = {
+        "ping": {},
+        "prompts/list": {"prompts": []},
+        "resources/list": {"resources": []},
+        "resources/templates/list": {"resourceTemplates": []},
+    }
+
     for line in sys.stdin:
         if not line.strip():
             continue
@@ -221,7 +234,7 @@ def main():
         method = msg.get("method")
 
         if method == "initialize":
-            resp = {
+            _write_response({
                 "jsonrpc": "2.0",
                 "id": req_id,
                 "result": {
@@ -229,21 +242,24 @@ def main():
                     "serverInfo": {"name": "agent-superpowers", "version": "1.2.0"},
                     "capabilities": {"tools": {}}
                 }
-            }
-            sys.stdout.write(json.dumps(resp) + "\n")
-            sys.stdout.flush()
+            })
 
-        elif method == "notifications/initialized":
+        elif method and method.startswith("notifications/"):
             pass
 
         elif method == "tools/list":
-            resp = {
+            _write_response({
                 "jsonrpc": "2.0",
                 "id": req_id,
                 "result": {"tools": TOOLS}
-            }
-            sys.stdout.write(json.dumps(resp) + "\n")
-            sys.stdout.flush()
+            })
+
+        elif method in static_results:
+            _write_response({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": static_results[method]
+            })
 
         elif method == "tools/call":
             params = msg.get("params", {})
@@ -263,13 +279,18 @@ def main():
                     "content": [{"type": "text", "text": f"Error executing tool {name}: {str(e)}"}],
                     "isError": True
                 }
-            resp = {
+            _write_response({
                 "jsonrpc": "2.0",
                 "id": req_id,
                 "result": result
-            }
-            sys.stdout.write(json.dumps(resp) + "\n")
-            sys.stdout.flush()
+            })
+
+        elif req_id is not None:
+            _write_response({
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "error": {"code": -32601, "message": f"Method not found: {method}"}
+            })
 
 if __name__ == "__main__":
     main()

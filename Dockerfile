@@ -2,6 +2,9 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
+# Install runtime dependencies for CLI and skill engines
+RUN pip install --no-cache-dir pyyaml pydantic rich requests
+
 # Copy codebase
 COPY . /app
 
